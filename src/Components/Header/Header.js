@@ -91,6 +91,7 @@ const Header = ({aboutMeRef, aboutMeRefScroll ,headerCustomRef}) => {
 
             <Link to="/" className="logo" onClick={changeUrlHandler}>Leyla Bellydance</Link>
 
+<nav>
             <button className="hamburger" onClick={toggleMenu}>
                <span className="hamburger__box">
                   <span className={`hamburger__inner__after ${toggle ? 'hamburger__inner__afterClose' : null}`}></span>
@@ -99,7 +100,7 @@ const Header = ({aboutMeRef, aboutMeRefScroll ,headerCustomRef}) => {
                </span>
             </button>
             
-            <nav>
+            
                <ul className={`navList ${toggle ? `toggledMenu` : null}`}>
                   <NavLink exact to="/" onClick={goToAboutMe} className="navItem" activeClassName="activeNavItem">O mnie</NavLink>
                   <NavLink to="/Aktualności" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Aktualności</NavLink>
@@ -107,7 +108,7 @@ const Header = ({aboutMeRef, aboutMeRefScroll ,headerCustomRef}) => {
                   <NavLink to="/Zajęcia" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Zajęcia taneczne</NavLink>
                   <NavLink to="/Kontakt" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Kontakt</NavLink>
                </ul>
-            </nav>
+               </nav>
          </div>
 
 

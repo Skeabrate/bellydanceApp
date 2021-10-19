@@ -12,7 +12,7 @@ export default function Aktualnosci({setHeaderCustomRef}) {
 
    useEffect(() => {
       document.title = "Zajęcia taneczne - Leyla Bellydance"
-      Aos.init({duration: 500, debounceDelay: 200})
+      Aos.init({duration: 1000, debounceDelay: 200})
       window.scrollTo(0, 0)
    }, [])
 
@@ -89,7 +89,7 @@ export default function Aktualnosci({setHeaderCustomRef}) {
                      </div>
                   </div>
 
-                  <div className="zajeciaImageCont">
+                  <div data-aos="zoom-in" data-aos-duration="1000" className="zajeciaImageCont">
                      <img alt="" src={zajeciaFooterImg}/>
                   </div>
                   
@@ -111,7 +111,7 @@ export default function Aktualnosci({setHeaderCustomRef}) {
                      <img src={paragraphOrnament} className="paragraphOrnament" style={{marginTop: '0'}} alt="" />
                   </div>
 
-                  <div className="zajeciaImageCont">
+                  <div data-aos="zoom-in" data-aos-duration="1000" className="zajeciaImageCont">
                      <img alt="" src={zajeciaPlakat} />
                   </div>
 

@@ -55,7 +55,7 @@ export default function Aktualnosci({ setHeaderCustomRef }) {
 
                         return (
                            <div key={post.title}>
-                              <article className={`aktualnosciArticle ${post === postData[0] ? 'aktualnosciArticleFirst' : null}`}>
+                              <article data-aos="fade-up" data-aos-duration="1500" className={`aktualnosciArticle ${post === postData[0] ? 'aktualnosciArticleFirst' : null}`}>
                                  <div className="aktualnosciPost">
                                     <div className="aktualnosciDate">{post.date}</div>
 
@@ -87,7 +87,7 @@ export default function Aktualnosci({ setHeaderCustomRef }) {
 
                               {post !== postData[lastIndex] ? (
                                  <div style={{ textAlign: 'center' }}>
-                                    <img alt="" className="pageTitleOrnamentDown" style={{ margin: 0 }} src={kulki} />
+                                    <img data-aos="zoom-in" alt="" className="pageTitleOrnamentDown" style={{ margin: 0 }} src={kulki} />
                                  </div>
                               ) : null}
                            </div>
