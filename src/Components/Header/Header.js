@@ -98,15 +98,18 @@ const Header = ({aboutMeRef, aboutMeRefScroll ,headerCustomRef}) => {
                   <span className={`hamburger__inner__before ${toggle ? 'hamburger__inner__beforeClose' : null}`}></span>
                </span>
             </button>
-
-            <ul className={`navList ${toggle ? `toggledMenu` : null}`}>
-               <NavLink exact to="/" onClick={goToAboutMe} className="navItem" activeClassName="activeNavItem">O mnie</NavLink>
-               <NavLink to="/Aktualności" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Aktualności</NavLink>
-               <NavLink to="/Pokazy" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Pokazy</NavLink>
-               <NavLink to="/Zajęcia" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Zajęcia taneczne</NavLink>
-               <NavLink to="/Kontakt" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Kontakt</NavLink>
-            </ul>
+            
+            <nav>
+               <ul className={`navList ${toggle ? `toggledMenu` : null}`}>
+                  <NavLink exact to="/" onClick={goToAboutMe} className="navItem" activeClassName="activeNavItem">O mnie</NavLink>
+                  <NavLink to="/Aktualności" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Aktualności</NavLink>
+                  <NavLink to="/Pokazy" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Pokazy</NavLink>
+                  <NavLink to="/Zajęcia" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Zajęcia taneczne</NavLink>
+                  <NavLink to="/Kontakt" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Kontakt</NavLink>
+               </ul>
+            </nav>
          </div>
+
 
       </header>
    )
