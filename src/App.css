@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&family=Great+Vibes&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter&display=swap');
+
+*, *::after, *::before{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Bitter', serif;
+}
+
+body{
+  background-color: white;
+}
+
+:root{
+  --light: rgb(233, 233, 233);
+  --orange: rgb(252, 92, 43);
+  --postBackground: rgb(252, 244, 229);
+  --selectTitle: rgb(245, 230, 207);
+}
+
+.paragraphOrnament{
+  margin: 30px auto 0 auto;
+  opacity: 0.9;
+  width: 300px;
+}
+
+@media(max-width: 1100px){
+  .paragraphOrnament{
+    width: 200px;
+  }
+}
