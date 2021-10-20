@@ -169,7 +169,7 @@ export default function AboutMe({setAboutMeRef, setAboutMeRefSCroll}){
                {/* Fourth Article */}
             <article className="AboutMe_wraper">
                <div className={`AboutMe_article_galery`}>
-                  <h1 className="pageTitle AboutMe_h1">Moi nauczyciele</h1>
+                  <h1 className="pageTitle AboutMe_h1">Moja edukacja taneczna</h1>
                   <div></div>
                </div>
             </article>       
