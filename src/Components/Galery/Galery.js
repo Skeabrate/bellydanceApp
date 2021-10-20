@@ -21,7 +21,7 @@ export default function Galery({ imagesData, displayTitle, label }) {
       if(length === 1) setClassForOne(true) 
       if(length === 2) setClassForTwo(true)
 
-      Aos.init({duration: 500, debounceDelay: 200})
+      Aos.init({duration: 500, debounceDelay: 200 })
    }, []) 
 
    useEffect(() => {

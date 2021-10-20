@@ -4,6 +4,15 @@
    text-align: center;
 }
 
+.paragraphOrnamentNoMargin{
+   margin-bottom: 0;
+}
+
+.paragrahOrnament_aboutMe_container{
+   display: none;
+}
+
+
 .AboutMe_wraper{
    overflow: hidden;
 }
@@ -22,7 +31,6 @@
 .AboutMe_article{
    display: grid;
    grid-template-columns: 1fr;
-   gap: 3vw;
    padding: 6vw;
 }
 
@@ -44,6 +52,13 @@
 
 .FirstParagraph{
    text-align: center;
+}
+
+.SecondParagraphContainer{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin-right: 6vw;
 }
 
 /* 
@@ -120,8 +135,15 @@ Slider
 }
 
 @media(max-width: 850px){
+   .SecondParagraph{
+      margin-right: 0;
+   }
    .SecondArticle{
       grid-template-columns: 1fr; 
+   }
+
+   .paragrahOrnament_aboutMe_container{
+      display: block;
    }
 }
 

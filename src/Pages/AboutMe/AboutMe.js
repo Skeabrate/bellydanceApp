@@ -37,7 +37,6 @@ const paragraphData = [
             imgSrc: Img1,
          },
       ],
-      fade: 'fade-up',
    },
    {
       text: `Agnieszka Leyla Świeczkowska posiada państwowe uprawnienia do wykonywania zawodu instruktora 
@@ -57,8 +56,6 @@ const paragraphData = [
             imgSrc: Img3,
          },
       ],
-      fade: 'fade-in',
-      offset: "200",
    },
    {
       text: `Swoją technikę taneczną nieustannie rozwijam uczestnicząc w największych festiwalach tanecznych i warsztatach prowadzonych przez wybitnych nauczycieli i 
@@ -108,8 +105,6 @@ const paragraphData = [
       ],
       title: true,
       label: '♥ Wspieram ♥',
-      fade: 'fade-in',
-      offset: "200",
    },
 ]
 
@@ -124,58 +119,61 @@ export default function AboutMe({setAboutMeRef, setAboutMeRefSCroll}){
    }, [])  
    
    return (
-   <>
-      <div className="AboutMe_Container" >
-         <div style={{
-            width: '100%',
-            height: '60px',
-            position: 'absolute',
-            top: '-60px'
-         }} id="AboutMeId" ref={aboutMeRef}></div> {/* cheat div to fix scroll bug */}
+      <>
+         <div className="AboutMe_Container" >
+            <div style={{
+               width: '100%',
+               height: '60px',
+               position: 'absolute',
+               top: '-60px'
+            }} id="AboutMeId" ref={aboutMeRef}></div> {/* cheat div to fix scroll bug */}
 
 
 
-         <section className="AboutMe_Section">
-            <header>
-               <h1 data-aos="zoom-in" className="pageTitle AboutMe_h1">O mnie</h1>
-            </header>
+            <section className="AboutMe_Section">
+               <header>
+                  <h1 data-aos="zoom-in" className="pageTitle AboutMe_h1">O mnie</h1>
+               </header>
 
                {paragraphData.map(paragraph => (
-                  <article className="AboutMe_wraper">
+                  <article key={paragraph.text} className="AboutMe_wraper">
                      <div className={`${paragraph === paragraphData[1] ? 'SecondArticle' : null} AboutMe_article`}>
 
-                        <div data-aos={paragraph.fade} data-aos-offset={paragraph.offset}  className={`${paragraph === paragraphData[0] ? 'FirstParagraph' : null} AboutMe_paragraph`} >
-                           {paragraph === paragraphData[0] ? (
-                              <ul style={{ listStyle: 'none' }}>
-                                 {paragraph.text.map(item => (
-                                    <li data-aos="fade-left" style={{ padding: '20px 0' }}><span className="lampaAlladyna"></span>{item}</li>
-                                 ))}
-                              </ul>
-                           ) : (
-                              <>{paragraph.text}</>
-                           )}
-                           
-                           <div style={{ textAlign: 'center' }}>
-                              <img src={paragraphOrnament} className="paragraphOrnament" alt="" />
+                        <div className={`${paragraph === paragraphData[1] ? 'SecondParagraphContainer' : null}`}>
+                           <div className={`${paragraph === paragraphData[0] ? 'FirstParagraph' : null} AboutMe_paragraph`} >
+                              {paragraph === paragraphData[0] ? (
+                                 <ul style={{ listStyle: 'none' }}>
+                                    {paragraph.text.map(item => (
+                                       <li key={item} data-aos="fade-left" style={{ padding: '15px 0' }}><span className="lampaAlladyna"></span>{item}</li>
+                                    ))}
+                                 </ul>
+                              ) : (
+                                 <>{paragraph.text}</>
+                              )}
+
+                           </div>
+
+                           <div className={`${paragraph === paragraphData[1] ? 'paragrahOrnament_aboutMe_container' : null}`} style={{ textAlign: 'center' }}>
+                              <img src={paragraphOrnament} className={`${paragraph === paragraphData[2] ? 'paragraphOrnamentNoMargin' : null} paragraphOrnament`} alt="" />
                            </div>
                         </div>
-                              
-                        <Galery imagesData={paragraph.img} displayTitle={paragraph.title} label={paragraph.label}/>
+
+                        <Galery imagesData={paragraph.img} displayTitle={paragraph.title} label={paragraph.label} />
 
                      </div>
                   </article>
                ))}
 
-               {/* Fourth Article */}
-            <article className="AboutMe_wraper">
-               <div className={`AboutMe_article_galery`}>
-                  <h1 className="pageTitle AboutMe_h1">Moja edukacja taneczna</h1>
-                  <div></div>
-               </div>
-            </article>       
-            
-         </section>
-      </div>
-   </>
+               
+               {/* <article className="AboutMe_wraper">
+                  <div className={`AboutMe_article_galery`}>
+                     <h1 className="pageTitle AboutMe_h1">Moja edukacja taneczna</h1>
+                     <div></div>
+                  </div>
+               </article> */}
+
+            </section>
+         </div>
+      </>
    )
 }

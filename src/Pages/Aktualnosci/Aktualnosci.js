@@ -11,7 +11,6 @@ import axios from "../../axios"
 import { objectToArrayWithId } from "../../helpers/objects"
 import PuffLoader from "react-spinners/PuffLoader"
 
-
 export default function Aktualnosci({ setHeaderCustomRef }) {
    const [postData, setPostData] = useState()
    const [loading, setLoading] = useState(false)
@@ -87,7 +86,7 @@ export default function Aktualnosci({ setHeaderCustomRef }) {
 
                               {post !== postData[lastIndex] ? (
                                  <div style={{ textAlign: 'center' }}>
-                                    <img alt="" className="pageTitleOrnamentDown" style={{ margin: 0 }} src={kulki} />
+                                    <img alt="" className="pageTitleOrnamentDown" src={kulki} />
                                  </div>
                               ) : null}
                            </div>

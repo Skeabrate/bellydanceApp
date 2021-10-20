@@ -3,32 +3,30 @@ import HeaderCustom from "../../Components/HeaderCustom/HeaderCustom"
 import zajeciaPlakat from "../../Assets/Zajecia/zajeciaOgloszenie.jpg"
 import zajeciaFooterImg from "../../Assets/Zajecia/zajeciaFooter.jpg"
 import paragraphOrnament from "../../Assets/Images/Daco_40936 (1).png"
-import Aos from "aos"
-import "aos/dist/aos.css"
 import "./Zajecia.css"
 import PageTitle from "../../Components/PageTitle/PageTitle"
+import Galery from "../../Components/Galery/Galery"
 
-export default function Aktualnosci({setHeaderCustomRef}) {
+export default function Aktualnosci({ setHeaderCustomRef }) {
 
    useEffect(() => {
       document.title = "Zajęcia taneczne - Leyla Bellydance"
-      Aos.init({duration: 500, debounceDelay: 200})
       window.scrollTo(0, 0)
    }, [])
 
    return (
       <section className="zajeciaBackground">
 
-         <HeaderCustom headerStyle="headerZajecia" setHeaderCustomRef={setHeaderCustomRef}/>
-         
-         <PageTitle 
+         <HeaderCustom headerStyle="headerZajecia" setHeaderCustomRef={setHeaderCustomRef} />
+
+         <PageTitle
             title="Taniec orientalny jest odpowiedni dla każdej z nas, bez względu na wiek, predyspozycje fizyczne, czy wcześniejszą aktywność ruchową."
             titleH2={null}
             style="zajeciaTitleBorderTop"
             displayOrns={true}
          />
-         
-         <div data-aos="fade-up" className="zajeciaContainer">
+
+         <div className="zajeciaContainer">
             <article>
                <div className="zajeciaInfo">
                   <div>
@@ -44,7 +42,9 @@ export default function Aktualnosci({setHeaderCustomRef}) {
                         Do każdej swojej tancerki staram się podchodzić w sposób zindywidualizowany, pomagając dostrzec swe predyspozycje i rozwijać możliwości.
                      </p>
 
-                     <p className="zajeciaParagraph">Czas poświecony na taniec brzucha przynosi nam wymierne korzyści zarówno dla ciała, psychiki i naszej duszy.</p>
+                     <p className="zajeciaParagraph">
+                        Czas poświecony na taniec brzucha przynosi nam wymierne korzyści zarówno dla ciała, psychiki i naszej duszy.
+                     </p>
 
                      <h3>Dzięki zajęciom tańca brzucha możemy:</h3>
                      <ul className="zajeciaList">
@@ -84,20 +84,18 @@ export default function Aktualnosci({setHeaderCustomRef}) {
                         </li>
                      </ul>
 
-                     <div style={{textAlign: 'center'}}>
-                        <img src={paragraphOrnament} className="paragraphOrnament" alt="" />
-                     </div>
+                  </div>
+                  <div style={{ textAlign: 'center', margin: '0 auto' }}>
+                     <img src={paragraphOrnament} className="paragraphOrnament" alt="" />
                   </div>
 
-                  <div data-aos="fade-up-right" data-aos-duration="500" className="zajeciaImageCont">
-                     <img alt="" src={zajeciaFooterImg}/>
-                  </div>
-                  
+                  <Galery imagesData={[{ id: 0, imgSrc: zajeciaFooterImg }]} />
+
                </div>
             </article>
 
             <article>
-               <div className="zajeciaInfo" style={{borderRight: 'none', borderBottom: 'none'}}>
+               <div className="zajeciaInfo" style={{ borderRight: 'none', borderBottom: 'none' }}>
                   <p className="zajeciaParagraph">
                      Dzieki wymaganej systematyczności w treningach taniec orientalny uczy nas cierpliwości, wytrwałości i szacunku dla swojego ciała.
                      Jednocześnie jest lekcją pokory wobec nieznanej nam wiedzy, wymagającą naszego zaangażowania i  pracy, jeśli chcemy rozwijać się
@@ -106,16 +104,14 @@ export default function Aktualnosci({setHeaderCustomRef}) {
                      Taniec w gronie innych kobiet toskonale wpływa na nasz nastrój i samopoczucie, pozwala rozwijać swą pasję , mieć satysfakcje
                      z osobistych postępów, a nawet dzielić się nią  podczas wspólnych występów na scenie, czy tanecznym parkiecie.
                   </p>
-                  
-                  <div style={{margin: '0 auto'}}>
-                     <img src={paragraphOrnament} className="paragraphOrnament" style={{marginTop: '0'}} alt="" />
+
+                  <div style={{ margin: '0 auto' }}>
+                     <img src={paragraphOrnament} className="paragraphOrnament" alt="" />
                   </div>
 
-                  <div data-aos="fade-up-left" data-aos-duration="500" className="zajeciaImageCont">
-                     <img alt="" src={zajeciaPlakat} />
-                  </div>
+                  <Galery imagesData={[{ id: 0, imgSrc: zajeciaPlakat }]} />
 
-               </div>   
+               </div>
             </article>
          </div>
       </section>
