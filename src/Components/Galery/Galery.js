@@ -3,6 +3,8 @@ import { useState, useEffect } from "react"
 import CloseIcon from '@material-ui/icons/Close';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import Aos from "aos"
+import "aos/dist/aos.css"
 
 export default function Galery({ imagesData, displayTitle, label }) {
    const [selectImg, setSelectImg] = useState(false)
@@ -18,6 +20,8 @@ export default function Galery({ imagesData, displayTitle, label }) {
    useEffect(() => {
       if(length === 1) setClassForOne(true) 
       if(length === 2) setClassForTwo(true)
+
+      Aos.init({duration: 500, debounceDelay: 200})
    }, []) 
 
    useEffect(() => {
@@ -75,7 +79,7 @@ export default function Galery({ imagesData, displayTitle, label }) {
    return (
       <div>
          {displayTitle ? (
-            <h2 className="galeryHeader">{label}</h2>
+            <h2 data-aos="zoom-in" className="galeryHeader">{label}</h2>
          ) : null}
    
          <div className={`selectImg ${selectImg ? "open" : null}`}>

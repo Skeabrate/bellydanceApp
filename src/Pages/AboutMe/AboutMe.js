@@ -57,7 +57,8 @@ const paragraphData = [
             imgSrc: Img3,
          },
       ],
-      fade: 'fade-right',
+      fade: 'fade-up',
+      offset: "350",
    },
    {
       text: `Swoją technikę taneczną nieustannie rozwijam uczestnicząc w największych festiwalach tanecznych i warsztatach prowadzonych przez wybitnych nauczycieli i 
@@ -108,6 +109,7 @@ const paragraphData = [
       title: true,
       label: '♥ Wspieram ♥',
       fade: 'fade-up',
+      offset: "350",
    },
 ]
 
@@ -118,7 +120,7 @@ export default function AboutMe({setAboutMeRef, setAboutMeRefSCroll}){
    useEffect(() => {
       setAboutMeRef(aboutMeRef.current)
       setAboutMeRefSCroll(aboutMeRef.current.getBoundingClientRect().top)
-      Aos.init({ duration: 500, debounceDelay: 1000 })
+      Aos.init({ duration: 500, debounceDelay: 2000 })
    }, [])  
    
    return (
@@ -142,11 +144,11 @@ export default function AboutMe({setAboutMeRef, setAboutMeRefSCroll}){
                   <article className="AboutMe_wraper">
                      <div className={`${paragraph === paragraphData[1] ? 'SecondArticle' : null} AboutMe_article`}>
 
-                        <div className="AboutMe_paragraph" >
+                        <div data-aos={paragraph.fade} data-aos-offset={paragraph.offset}  className={`${paragraph === paragraphData[0] ? 'FirstParagraph' : null} AboutMe_paragraph`} >
                            {paragraph === paragraphData[0] ? (
                               <ul style={{ listStyle: 'none' }}>
                                  {paragraph.text.map(item => (
-                                    <li style={{ padding: '5px 0' }}><span className="lampaAlladyna"></span>{item}</li>
+                                    <li data-aos="fade-left" style={{ padding: '20px 0' }}><span className="lampaAlladyna"></span>{item}</li>
                                  ))}
                               </ul>
                            ) : (
@@ -157,7 +159,7 @@ export default function AboutMe({setAboutMeRef, setAboutMeRefSCroll}){
                               <img src={paragraphOrnament} className="paragraphOrnament" alt="" />
                            </div>
                         </div>
-
+                              
                         <Galery imagesData={paragraph.img} displayTitle={paragraph.title} label={paragraph.label}/>
 
                      </div>

@@ -4,6 +4,10 @@
    text-align: center;
 }
 
+.AboutMe_wraper{
+   overflow: hidden;
+}
+
 .AboutMe_Container{
    position: relative;
    width: 100%;
@@ -36,6 +40,10 @@
    flex-direction: column;
    justify-content: center;
    text-align: justify;
+}
+
+.FirstParagraph{
+   text-align: center;
 }
 
 /* 
