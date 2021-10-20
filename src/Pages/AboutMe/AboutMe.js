@@ -57,8 +57,8 @@ const paragraphData = [
             imgSrc: Img3,
          },
       ],
-      fade: 'fade-up',
-      offset: "350",
+      fade: 'fade-in',
+      offset: "200",
    },
    {
       text: `Swoją technikę taneczną nieustannie rozwijam uczestnicząc w największych festiwalach tanecznych i warsztatach prowadzonych przez wybitnych nauczycieli i 
@@ -108,8 +108,8 @@ const paragraphData = [
       ],
       title: true,
       label: '♥ Wspieram ♥',
-      fade: 'fade-up',
-      offset: "350",
+      fade: 'fade-in',
+      offset: "200",
    },
 ]
 
@@ -120,7 +120,7 @@ export default function AboutMe({setAboutMeRef, setAboutMeRefSCroll}){
    useEffect(() => {
       setAboutMeRef(aboutMeRef.current)
       setAboutMeRefSCroll(aboutMeRef.current.getBoundingClientRect().top)
-      Aos.init({ duration: 500, debounceDelay: 2000 })
+      Aos.init({ duration: 500 })
    }, [])  
    
    return (
