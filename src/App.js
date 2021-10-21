@@ -1,17 +1,18 @@
 import './App.css';
+import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { useState, lazy, Suspense } from 'react';
 import NotFound from './Pages/404/NotFound';
-import PuffLoader from "react-spinners/PuffLoader"
+import AboutMe from './Pages/AboutMe/AboutMe';
+import LoadingScreen from "./Components/LoadingScreen/LoadingScreen"
 
 const Homepage = lazy(() => import('./Pages/Homepage/Homepage'))
-const Header = lazy(() => import('./Components/Header/Header'))
-const AboutMe = lazy(() => import('./Pages/AboutMe/AboutMe'))
 const Aktualnosci = lazy(() => import('./Pages/Aktualnosci/Aktualnosci'))
-const Pokazy = lazy(() => import('./Pages/Pokazy/Pokazy'))
 const Zajecia = lazy(() => import('./Pages/Zajecia/Zajecia'))
+const Pokazy = lazy(() => import('./Pages/Pokazy/Pokazy'))
 const Kontakt = lazy(() => import('./Pages/Kontakt/Kontakt'))
+
 
 function App() {
   const [aboutMeRef, setAboutMeRef] = useState('')
@@ -20,22 +21,7 @@ function App() {
   const [aboutMeRefScroll, setAboutMeRefSCroll] = useState('')
 
   const content = (
-    <Suspense 
-      fallback={
-      <div style={{
-        backgroundColor: 'rgb(252, 244, 229)', 
-        width: '100%', 
-        height: '100vh', 
-        position: 'absolute', 
-        zIndex: 999,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
-        <PuffLoader size={100} color="rgb(255, 187, 0)" />
-          
-      </div>}
-    >
+    <Suspense fallback={<LoadingScreen />} >
       <Switch>
         <Route exact path="/">
           <Homepage />
@@ -67,28 +53,11 @@ function App() {
   ) 
 
   return (
-    <Suspense
-      fallback={
-        <div style={{
-          backgroundColor: 'rgb(252, 244, 229)',
-          width: '100%',
-          height: '100vh',
-          position: 'absolute',
-          zIndex: 999,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}>
-          <PuffLoader size={100} color="rgb(255, 187, 0)" />
-
-        </div>}
-    >
-      <Router>
-        <Header aboutMeRef={aboutMeRef} aboutMeRefScroll={aboutMeRefScroll} headerCustomRef={headerCustomRef} />
-        {content}
-        <Footer />
-      </Router>
-    </Suspense>
+    <Router>
+      <Header aboutMeRef={aboutMeRef} aboutMeRefScroll={aboutMeRefScroll} headerCustomRef={headerCustomRef}/>
+      {content}
+      <Footer />
+    </Router>
   );
 }
 

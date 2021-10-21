@@ -15,6 +15,7 @@ export default function Aktualnosci({setHeaderCustomRef}) {
       try{
          const res = await axios.get('/Video.json')
          setVideoSrc(res.data)
+
       } catch (ex) {
          console.log(ex.response)
       } 
@@ -74,7 +75,7 @@ export default function Aktualnosci({setHeaderCustomRef}) {
                      <video className="pokazyVideo" controls>
                         <source src={videoSrc} type="video/mp4"/> 
                      </video>
-                  ) : null}
+                  ) :  null}
 
                </div>
             </div>

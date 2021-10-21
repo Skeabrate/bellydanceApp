@@ -18,7 +18,7 @@ export default function Aktualnosci({ setHeaderCustomRef }) {
       <section className="zajeciaBackground">
 
          <HeaderCustom headerStyle="headerZajecia" setHeaderCustomRef={setHeaderCustomRef} />
-
+         
          <PageTitle
             title="Taniec orientalny jest odpowiedni dla każdej z nas, bez względu na wiek, predyspozycje fizyczne, czy wcześniejszą aktywność ruchową."
             titleH2={null}
