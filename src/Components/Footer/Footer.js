@@ -30,7 +30,9 @@ const Footer = () => {
          <div className="footerKontakt">
             <Socials 
                socialsData={socialsData}
-               classList={"footerSocialsList"}
+               classList="footerSocialsList"
+               classLink="footerSocialsLink"
+               classSocial="footersocialImg"
             />
          </div>
          <div>&copy; {(new Date().getFullYear())} Sebastian Świeczkowski All rights reserved</div>

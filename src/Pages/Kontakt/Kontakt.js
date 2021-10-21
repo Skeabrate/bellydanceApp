@@ -61,7 +61,7 @@ export default function Kontakt({setHeaderCustomRef}) {
    useEffect(() => {
       document.title = "Kontakt - Leyla Bellydance"
       window.scrollTo(0, 0)
-      Aos.init({duration: 500, debounceDelay: 200})
+      Aos.init({duration: 500, debounceDelay: 200, once: true,})
    }, [])
 
    return (

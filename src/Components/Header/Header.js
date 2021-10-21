@@ -20,23 +20,6 @@ const Header = ({aboutMeRef, aboutMeRefScroll ,headerCustomRef}) => {
          threshold: 1,
       }
    }, [])
-
-   //// HomePage Scroll Color Change
-   /* const colorChangeHandler = () => {
-      let lastKnownScrollPosition = 0;
-      if(window.scrollY >= 60 ){
-         setHeaderToggle(false)
-      } else {
-         setHeaderToggle(true)
-      }
- 
-      console.log(window.scrollY)
-   } 
-   
-   useEffect(() => {
-      window.addEventListener('scroll', colorChangeHandler)
-   },[]) */
-
    
    useEffect(() => {
       const observer = new IntersectionObserver(callbackFunction, options)
@@ -102,7 +85,7 @@ const Header = ({aboutMeRef, aboutMeRefScroll ,headerCustomRef}) => {
 
 
                <ul className={`navList ${toggle ? `toggledMenu` : null}`}>
-                  <NavLink exact to="/" onClick={goToAboutMe} className="navItem" activeClassName="activeNavItem">O mnie</NavLink>
+                  {/* <NavLink exact to="/" onClick={goToAboutMe} className="navItem" activeClassName="activeNavItem">O mnie</NavLink> */}
                   <NavLink to="/Aktualności" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Aktualności</NavLink>
                   <NavLink to="/Pokazy" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Pokazy</NavLink>
                   <NavLink to="/Zajęcia" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Zajęcia taneczne</NavLink>
