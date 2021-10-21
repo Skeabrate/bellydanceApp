@@ -27,16 +27,15 @@
 .zajeciaContainer{
    display: grid;
    grid-template-columns: 1fr 1fr;
-   padding: 3vw;
+   padding: 2vw;
    background-color: rgb(252, 244, 229);
    border-radius: 50px 50px 0 0;
-   border-top: 1px solid rgb(224, 201, 156);
+   border-top: 1px solid var(--selectTitle);
    overflow: hidden;
 }
 
 .zajeciaInfo{
    display: flex;
-   
    font-size: 1.1rem;
    height: 100%;
    padding: 2vw;
@@ -44,7 +43,7 @@
    text-align: justify;
    justify-content: space-between;
    align-items: flex-end;
-   border-right: 2px dotted rgb(224, 201, 156);
+   border-right: 4px dotted var(--selectTitle);
 }
 
 .zajeciaParagraph{
@@ -87,8 +86,8 @@
 
    .zajeciaInfo{
       border-right: none;
-      border-bottom: 2px dotted rgb(224, 201, 156);
-      padding-bottom: 8vw;
+      border-bottom: 4px dotted var(--selectTitle);
+      padding: 8vw 2vw;
       font-size: 1rem;
    }
 

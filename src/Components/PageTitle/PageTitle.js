@@ -1,4 +1,3 @@
-import "./PageTitle.css"
 import headerOrnament from "../../Assets/Images/kontaktRamkaKpia.png"
 import headerOrnamentDown from "../../Assets/Images/kontaktRamkaKulki.png"
 

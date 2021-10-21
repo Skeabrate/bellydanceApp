@@ -115,7 +115,7 @@ export default function AboutMe({setAboutMeRef, setAboutMeRefSCroll}){
    useEffect(() => {
       setAboutMeRef(aboutMeRef.current)
       setAboutMeRefSCroll(aboutMeRef.current.getBoundingClientRect().top)
-      Aos.init({ duration: 500, once: true })
+      Aos.init({ duration: 500, once: true, })
    }, [])  
    
    return (

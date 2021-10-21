@@ -49,7 +49,7 @@ const socialsData = [
    {
       id: 6,
       type: 'Tel. 502 505 119',
-      link: `tel:'502 505 199'`,
+      link: `tel:'502 505 119'`,
       social: TelNum,
       fade: "fade-left",
    },

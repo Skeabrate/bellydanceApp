@@ -20,8 +20,8 @@ export default function Aktualnosci({ setHeaderCustomRef }) {
          <HeaderCustom headerStyle="headerZajecia" setHeaderCustomRef={setHeaderCustomRef} />
          
          <PageTitle
-            title="Taniec orientalny jest odpowiedni dla każdej z nas, bez względu na wiek, predyspozycje fizyczne, czy wcześniejszą aktywność ruchową."
-            titleH2={null}
+            title="Taniec orientalny jest dla każdej z nas ♥"
+            titleH2="Bez względu na wiek, predyspozycje fizyczne, czy wcześniejszą aktywność ruchową, każda z Pań może rozpocząć naukę tańca belly dance."
             style="zajeciaTitleBorderTop"
             displayOrns={true}
          />

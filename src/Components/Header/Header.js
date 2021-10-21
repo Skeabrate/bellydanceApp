@@ -50,13 +50,10 @@ const Header = ({aboutMeRef, aboutMeRefScroll ,headerCustomRef}) => {
    const scrollFunc = (point) => {
       setToggle(false)
       window.scrollTo({
-         top: point,
-         behavior: 'smooth',
+         top: point,  
       }) 
    }
 
-   const goToAboutMe = () => scrollFunc(aboutMeRefScroll)
-   
    const changeUrlHandler = () => scrollFunc(0)
 
    const toggleMenu = () => {
@@ -85,7 +82,7 @@ const Header = ({aboutMeRef, aboutMeRefScroll ,headerCustomRef}) => {
 
 
                <ul className={`navList ${toggle ? `toggledMenu` : null}`}>
-                  {/* <NavLink exact to="/" onClick={goToAboutMe} className="navItem" activeClassName="activeNavItem">O mnie</NavLink> */}
+                  <NavLink exact to="/" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Home</NavLink>
                   <NavLink to="/Aktualności" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Aktualności</NavLink>
                   <NavLink to="/Pokazy" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Pokazy</NavLink>
                   <NavLink to="/Zajęcia" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Zajęcia taneczne</NavLink>

@@ -20,15 +20,15 @@
    margin: 6vw;
    background-color: var(--postBackground);
    border-radius: 50px 50px 0 0;
-   border-top: 1px solid rgb(224, 201, 156);
-   border-bottom: 1px solid rgb(224, 201, 156);
+   border-top: 1px solid var(--selectTitle);
+   border-bottom: 1px solid var(--selectTitle);
 }
 
 .aktualnosciDate{
    padding: 0 10px 3px 10px;
    font-size: 16px;
    color: rgb(59, 59, 59);
-   border-bottom: 1px dotted rgb(224, 201, 156);
+   border-bottom: 2px dotted var(--selectTitle);
 }
 
 .aktualnosciPost{
@@ -36,13 +36,13 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   gap: 2rem;
+   gap: 32px;
 }
 
 .aktualnosciPostTitle{
    text-align: center;
    padding-bottom: 1vw;
-   border-bottom: 2px dotted rgb(224, 201, 156);
+   border-bottom: 4px dotted var(--selectTitle);
    width: 60vw;
 }
 

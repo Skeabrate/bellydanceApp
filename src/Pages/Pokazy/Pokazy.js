@@ -7,6 +7,7 @@ import Aos from "aos"
 import "aos/dist/aos.css"
 import PageTitle from "../../Components/PageTitle/PageTitle"
 import axios from "../../axios"
+import vidPlaceHolder from "../../Assets/Pokazy/img9.jpg"
 
 export default function Aktualnosci({setHeaderCustomRef}) {
    const [videoSrc, setVideoSrc] = useState('')
@@ -36,7 +37,7 @@ export default function Aktualnosci({setHeaderCustomRef}) {
          <article>
             {/* Text headers */}
             <PageTitle 
-               title="Niech magia tańca orientalnego będzie niezapomnianym akcentem Państwa uroczystości"
+               title="Magia tańca orientalnego podczas Państwa uroczystości"
                titleH2="W ten egzotyczny świat wprowadzi Cię tancerka Leyla, która może zatańczyć na Państwa weselu, 
                imprezie okolicznościowej, czy ofiarować w imieniu Państwa, taniec dla gości imprezy."
                displayOrns={true}
@@ -73,7 +74,7 @@ export default function Aktualnosci({setHeaderCustomRef}) {
 
                   {videoSrc ? (
                      <video className="pokazyVideo" controls>
-                        <source src={videoSrc} type="video/mp4"/> 
+                        <source src={videoSrc} type="video/mp4" poster={vidPlaceHolder}/> 
                      </video>
                   ) :  null}
 
