@@ -4,7 +4,7 @@ export default function Socials({ socialsData, classList, classItem, classLink, 
          {socialsData.map((item) => {
             return (
                <li key={item.id} data-aos={item.fade} className={classItem}>
-                  <a href={item.link} target="_blank" rel="noreferrer" className={classLink}>
+                  <a href={item.link} target="_blank" rel="noopener noreferrer" title={item.type} className={classLink}>
                      <img alt="" className={classSocial} src={item.social} />
                      <p>{item.type}</p>
                   </a>
