@@ -5,13 +5,11 @@ import { HashRouter as Router, Route, Switch } from 'react-router-dom'
 import { useState, lazy, Suspense } from 'react';
 import NotFound from './Pages/404/NotFound';
 import AboutMe from './Pages/AboutMe/AboutMe';
-import LoadingScreen from "./Components/LoadingScreen/LoadingScreen"
-
-const Homepage = lazy(() => import('./Pages/Homepage/Homepage'))
-const Aktualnosci = lazy(() => import('./Pages/Aktualnosci/Aktualnosci'))
-const Zajecia = lazy(() => import('./Pages/Zajecia/Zajecia'))
-const Pokazy = lazy(() => import('./Pages/Pokazy/Pokazy'))
-const Kontakt = lazy(() => import('./Pages/Kontakt/Kontakt'))
+import Homepage from "./Pages/Homepage/Homepage"
+import Aktualnosci from './Pages/Aktualnosci/Aktualnosci'
+import Zajecia from './Pages/Zajecia/Zajecia'
+import Pokazy from './Pages/Pokazy/Pokazy'
+import Kontakt from './Pages/Kontakt/Kontakt'
 
 
 function App() {
@@ -21,35 +19,33 @@ function App() {
   const [aboutMeRefScroll, setAboutMeRefSCroll] = useState('')
 
   const content = (
-    <Suspense fallback={<LoadingScreen />} >
-      <Switch>
-        <Route exact path="/">
-          <Homepage />
-          <AboutMe setAboutMeRef={setAboutMeRef} setAboutMeRefSCroll={setAboutMeRefSCroll}/>
-        </Route>
+    <Switch>
+      <Route exact path="/">
+        <Homepage />
+        <AboutMe setAboutMeRef={setAboutMeRef} setAboutMeRefSCroll={setAboutMeRefSCroll}/>
+      </Route>
 
-        <Route path="/Aktualności">
-          <Aktualnosci setHeaderCustomRef={setHeaderCustomRef}/>
-        </Route>
+      <Route path="/Aktualności">
+        <Aktualnosci setHeaderCustomRef={setHeaderCustomRef}/>
+      </Route>
 
-        <Route path="/Pokazy">
-          <Pokazy setHeaderCustomRef={setHeaderCustomRef}/>
-        </Route>
+      <Route path="/Pokazy">
+        <Pokazy setHeaderCustomRef={setHeaderCustomRef}/>
+      </Route>
 
-        <Route path="/Zajęcia">
-          <Zajecia setHeaderCustomRef={setHeaderCustomRef}/>
-        </Route>
+      <Route path="/Zajęcia">
+        <Zajecia setHeaderCustomRef={setHeaderCustomRef}/>
+      </Route>
 
-        <Route path="/Kontakt">
-          <Kontakt setHeaderCustomRef={setHeaderCustomRef}/>
-        </Route>
+      <Route path="/Kontakt">
+        <Kontakt setHeaderCustomRef={setHeaderCustomRef}/>
+      </Route>
 
-        <Route>
-          <NotFound />
-        </Route>
-      
-      </Switch>
-    </Suspense>
+      <Route>
+        <NotFound />
+      </Route>
+    
+    </Switch>
   ) 
 
   return (

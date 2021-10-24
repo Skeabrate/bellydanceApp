@@ -57,11 +57,7 @@ const Header = ({aboutMeRef, aboutMeRefScroll ,headerCustomRef}) => {
    const changeUrlHandler = () => scrollFunc(0)
 
    const toggleMenu = () => {
-      if(toggle === false){
-         return setToggle(true)
-      } else {
-         return setToggle(false)
-      }
+      setToggle(!toggle)
    }
 
    return (
