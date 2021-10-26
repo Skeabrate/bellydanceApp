@@ -2,7 +2,7 @@ import './App.css';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
-import { useState, lazy, Suspense } from 'react';
+import { useState } from 'react';
 import NotFound from './Pages/404/NotFound';
 import AboutMe from './Pages/AboutMe/AboutMe';
 import Homepage from "./Pages/Homepage/Homepage"

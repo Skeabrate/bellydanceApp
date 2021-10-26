@@ -1,29 +1,6 @@
-import Socials from "../Socials/Socials"
-import Facebook from "../../Assets/SocialSVGs/facebookTransparent.png"
-import Instagram from "../../Assets/SocialSVGs/instagramTransparent.png"
-import YouTube from "../../Assets/SocialSVGs/youtubeTransparent.png"
 import "./Footer.css"
 
 const Footer = () => {
-   const socialsData = [
-      {
-         id: 1,
-         link: 'https://www.youtube.com/user/LeylaWloclawek/videos',
-         social: YouTube,
-      },
-      {
-         id: 2,
-         link: 'https://www.facebook.com/agnieszka.swieczkowska.9',
-         social: Facebook,
-      },
-      {
-         id: 3,
-         link: 'https://www.instagram.com/bellydance_leyla/',
-         social: Instagram,
-      },
-   
-   ]
-
    return (
       <footer className="footerStyle">
          <div className="logo" style={{color: 'black', textShadow: 'none'}}>Leyla Bellydance</div>
