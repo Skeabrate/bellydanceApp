@@ -2,7 +2,6 @@ import './App.css';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom'
-import { useState } from 'react';
 import NotFound from './Pages/404/NotFound';
 import AboutMe from './Pages/AboutMe/AboutMe';
 import Homepage from "./Pages/Homepage/Homepage"
@@ -13,44 +12,29 @@ import Kontakt from './Pages/Kontakt/Kontakt'
 
 
 function App() {
-  const [aboutMeRef, setAboutMeRef] = useState('')
-  const [headerCustomRef, setHeaderCustomRef] = useState('')
-
-  const [aboutMeRefScroll, setAboutMeRefSCroll] = useState('')
-
   const content = (
     <Switch>
       <Route exact path="/">
-        <Homepage />
-        <AboutMe setAboutMeRef={setAboutMeRef} setAboutMeRefSCroll={setAboutMeRefSCroll}/>
+        <Homepage  />
+        <AboutMe />
       </Route>
 
-      <Route path="/Aktualności">
-        <Aktualnosci setHeaderCustomRef={setHeaderCustomRef}/>
-      </Route>
+      <Route path="/Aktualności" component={Aktualnosci} />
 
-      <Route path="/Pokazy">
-        <Pokazy setHeaderCustomRef={setHeaderCustomRef}/>
-      </Route>
+      <Route path="/Pokazy" component={Pokazy} />
 
-      <Route path="/Zajęcia">
-        <Zajecia setHeaderCustomRef={setHeaderCustomRef}/>
-      </Route>
+      <Route path="/Zajęcia" component={Zajecia} />
 
-      <Route path="/Kontakt">
-        <Kontakt setHeaderCustomRef={setHeaderCustomRef}/>
-      </Route>
+      <Route path="/Kontakt" component={Kontakt} />
 
-      <Route>
-        <NotFound />
-      </Route>
+      <Route component={NotFound} />
     
     </Switch>
   ) 
 
   return (
     <Router>
-      <Header aboutMeRef={aboutMeRef} aboutMeRefScroll={aboutMeRefScroll} headerCustomRef={headerCustomRef}/>
+      <Header/>
       {content}
       <Footer />
     </Router>

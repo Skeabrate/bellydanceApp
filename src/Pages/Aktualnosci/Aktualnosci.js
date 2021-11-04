@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react"
-import HeaderCustom from "../../Components/HeaderCustom/HeaderCustom"
+import { useEffect, useState, useRef } from "react"
 import "./Aktualnosci.css"
 import Aos from "aos"
 import "aos/dist/aos.css"
@@ -10,10 +9,15 @@ import Galery from "../../Components/Galery/Galery"
 import axios from "../../axios"
 import { objectToArrayWithId } from "../../helpers/objects"
 import PuffLoader from "react-spinners/PuffLoader"
+import { imgLoad } from "../../helpers/imgLoad"
+import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
 
-export default function Aktualnosci({ setHeaderCustomRef }) {
+export default function Aktualnosci() {
    const [postData, setPostData] = useState()
    const [loading, setLoading] = useState(false)
+   const [showContent, setShowContent] = useState(false)
+
+   const headerBackgroundRef = useRef()
 
    const fetchPosts = async () => {
       try{
@@ -31,12 +35,18 @@ export default function Aktualnosci({ setHeaderCustomRef }) {
       document.title = "Aktualności - Leyla Bellydance"
       Aos.init({ duration: 500, debounceDelay: 200 })
    
+      var image = document.createElement('img')
+      image.src = imgLoad(headerBackgroundRef.current) 
+      image.onload = function() {
+         setShowContent(true)
+      }
       fetchPosts()
    }, [])
 
    return (
       <>
-         <HeaderCustom headerStyle="headerAktualnosci" setHeaderCustomRef={setHeaderCustomRef} />
+         {!showContent ? <LoadingScreen /> : null }
+         <div className="headerAktualnosci" ref={headerBackgroundRef}></div>
 
          {loading ? (
             <>

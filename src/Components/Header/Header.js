@@ -1,10 +1,13 @@
 import "./Header.css"
-import { NavLink, Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { useEffect, useRef, useState, useMemo } from "react"
+import { StyledHeader, StyledHeaderBackground, StyledLogo } from "./Header.styles"
 
-const Header = ({aboutMeRef, aboutMeRefScroll ,headerCustomRef}) => {
+const Header = () => {
    const [toggle, setToggle] = useState(false)
    const [headerToggle, setHeaderToggle] = useState(true)
+
+   const headerPosition = useRef()
 
    const headerRef = useRef()
 
@@ -23,28 +26,14 @@ const Header = ({aboutMeRef, aboutMeRefScroll ,headerCustomRef}) => {
    
    useEffect(() => {
       const observer = new IntersectionObserver(callbackFunction, options)
-
-      if(aboutMeRef) observer.observe(aboutMeRef)
+      if(headerPosition.current) observer.observe(headerPosition.current)
 
       return () => {
-         if(aboutMeRef) {
-            observer.unobserve(aboutMeRef)
+         if(headerPosition.current) {
+            observer.unobserve(headerPosition.current)
          }
       }
-   }, [aboutMeRef, options])
-
-
-   useEffect(() => {
-      const observer = new IntersectionObserver(callbackFunction, options)
-
-      if(headerCustomRef) observer.observe(headerCustomRef)
-
-      return () => { 
-         if(headerCustomRef) {
-            observer.unobserve(headerCustomRef)
-         }
-      }
-   }, [headerCustomRef, options])
+   }, [headerPosition.current, options])
 
    //// Functions
    const scrollFunc = (point) => {
@@ -62,10 +51,16 @@ const Header = ({aboutMeRef, aboutMeRefScroll ,headerCustomRef}) => {
 
    return (
       <header>
-         <div className={`Header_Nav`} ref={headerRef}>
-            <div className={`Header_Nav_Background ${!headerToggle ? 'Header_Nav_Changecolor' : null}`}></div>
+         <div style={{
+        width: '100%',
+        height: '50px',
+        position: 'absolute',
+        top: '0px',
+      }} ref={headerPosition}></div>
+         <StyledHeader ref={headerRef} isToggled={headerToggle}>
+            <StyledHeaderBackground isToggled={headerToggle}></StyledHeaderBackground>
 
-            <Link to="/" className="logo" onClick={changeUrlHandler}>Leyla Bellydance</Link>
+            <StyledLogo isToggled={headerToggle} to="/" onClick={changeUrlHandler}>Leyla Bellydance</StyledLogo>
 
             <nav>
                <button className="hamburger" onClick={toggleMenu}>
@@ -78,14 +73,14 @@ const Header = ({aboutMeRef, aboutMeRefScroll ,headerCustomRef}) => {
 
 
                <ul className={`navList ${toggle ? `toggledMenu` : null}`}>
-                  <NavLink exact to="/" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Home</NavLink>
-                  <NavLink to="/Aktualności" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Aktualności</NavLink>
-                  <NavLink to="/Pokazy" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Pokazy</NavLink>
-                  <NavLink to="/Zajęcia" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Zajęcia taneczne</NavLink>
-                  <NavLink to="/Kontakt" className="navItem" activeClassName="activeNavItem" onClick={changeUrlHandler}>Kontakt</NavLink>
+                  <NavLink exact to="/" className="navItem" onClick={changeUrlHandler}>Home</NavLink>
+                  <NavLink to="/Aktualności" className="navItem" onClick={changeUrlHandler}>Aktualności</NavLink>
+                  <NavLink to="/Pokazy" className="navItem" onClick={changeUrlHandler}>Pokazy</NavLink>
+                  <NavLink to="/Zajęcia" className="navItem" onClick={changeUrlHandler}>Zajęcia taneczne</NavLink>
+                  <NavLink to="/Kontakt" className="navItem" onClick={changeUrlHandler}>Kontakt</NavLink>
                </ul>
             </nav>
-         </div>
+         </StyledHeader>
 
 
       </header>

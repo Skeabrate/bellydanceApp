@@ -1,6 +1,5 @@
 import "./Kontakt.css"
-import { useEffect } from "react"
-import HeaderCustom from "../../Components/HeaderCustom/HeaderCustom"
+import { useEffect, useRef, useState } from "react"
 import Instagram from "../../Assets/SocialSVGs/instagram.png"
 import Facebook from "../../Assets/SocialSVGs/facebook.png"
 import YouTube from "../../Assets/SocialSVGs/youtube.png"
@@ -9,6 +8,8 @@ import TelNum from "../../Assets/SocialSVGs/telephone.png"
 import Aos from "aos"
 import "aos/dist/aos.css"
 import Socials from "../../Components/Socials/Socials"
+import { imgLoad } from "../../helpers/imgLoad"
+import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
 
 const socialsData = [
    {
@@ -56,33 +57,43 @@ const socialsData = [
    
 ]
 
-export default function Kontakt({setHeaderCustomRef}) {
+export default function Kontakt() {
+   const headerBackgroundRef = useRef(null)
+   const [showContent, setShowContent] = useState(false)
 
    useEffect(() => {
       document.title = "Kontakt - Leyla Bellydance"
       window.scrollTo(0, 0)
       Aos.init({duration: 500, debounceDelay: 200, once: true,})
+
+      var image = document.createElement('img')
+      image.src = imgLoad(headerBackgroundRef.current) 
+      image.onload = function() {
+         setShowContent(true)
+      }
    }, [])
 
    return (
-      <section>
-         <HeaderCustom headerStyle="headerKontakt" setHeaderCustomRef={setHeaderCustomRef}/>
-         <article className="kontaktContainer">
-            <div className="kontaktInfo">
+      <>
+         {!showContent ? <LoadingScreen /> : null }
+         <section>
+            <div className="headerKontakt" ref={headerBackgroundRef}></div>
+            <article className="kontaktContainer">
+               <div className="kontaktInfo">
 
-               <h1 data-aos="zoom-in" className="kontaktTitle">Kontakt</h1>
+                  <h1 data-aos="zoom-in" className="kontaktTitle">Kontakt</h1>
 
-               <Socials 
-                  socialsData={socialsData}
-                  classList={"kontaktList"}
-                  classItem={"kontaktListItem"}
-                  classLink={"kontaktListItemSocial"}
-                  classSocial={"socialImg"}
-               />
+                  <Socials 
+                     socialsData={socialsData}
+                     classList={"kontaktList"}
+                     classItem={"kontaktListItem"}
+                     classLink={"kontaktListItemSocial"}
+                     classSocial={"socialImg"}
+                  />
 
-            </div>
-         </article>
-      </section>
-      
+               </div>
+            </article>
+         </section>
+      </>
    )
 }

@@ -13,7 +13,7 @@ const Homepage = () => {
    useEffect(() => {
       document.title = "Leyla Bellydance"
       window.scrollTo(0, 0)
-
+      
       var image = document.createElement('img')
       image.src = imgLoad(homepageRef.current) 
       image.onload = function() {
@@ -22,11 +22,12 @@ const Homepage = () => {
    
    }, [])
 
+   
+
    return (
       <>
          {!showContent ? <LoadingScreen /> : null }
          <section ref={homepageRef} data-aos="fade-in" data-aos-duration="1000" className="Homepage_main">
-
             <div data-aos="zoom-in" data-aos-duration="1000" className="Homepage_title_container">
                <p className="Homepage_title">
                   Magiczny Świat Orientu

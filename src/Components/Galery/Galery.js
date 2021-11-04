@@ -3,6 +3,8 @@ import { useState, useEffect } from "react"
 import CloseIcon from '@material-ui/icons/Close';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 export default function Galery({ imagesData, displayTitle, label }) {
    const [selectImg, setSelectImg] = useState(false)
@@ -104,7 +106,8 @@ export default function Galery({ imagesData, displayTitle, label }) {
                   key={image.id}
                   onClick={() => getImg(image.id)}
                >
-                  <img
+                  <LazyLoadImage
+                     effect="blur"
                      src={image.imgSrc}
                      alt=""
                   />

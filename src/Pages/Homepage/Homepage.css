@@ -11,6 +11,7 @@
    background-repeat: no-repeat;
    z-index: 0;
    background-color: white;
+   position: relative;
 }
 
 .Homepage_title_container{
@@ -24,7 +25,7 @@
 .Homepage_title{
    font-family: 'Great Vibes', cursive;
    font-size: 4rem;
-   letter-spacing: 6px;
+   letter-spacing: 3px;
    color: var(--light);
    text-align: center;
    text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
@@ -58,7 +59,7 @@
    transform: rotate(-180deg);
 }
 
-@media(max-width: 1101px){
+@media(max-width: 1000px){
    .Homepage_main{
       background-attachment: unset;
    }
@@ -68,7 +69,7 @@
    }
 
    .Homepage_title{
-      font-size: 2.3rem;
+      font-size: 3.2rem;
    }
 
    .textOrnament{
@@ -78,6 +79,6 @@
 
 @media(max-width: 530px){
    .Homepage_title{
-      font-size: 1.8rem;
+      font-size: 2rem;
    }
 }
