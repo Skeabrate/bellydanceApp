@@ -62,7 +62,7 @@
    margin-right: 6vw;
 }
 
-@media(max-width: 1100px){
+@media(max-width: 1000px){
    .AboutMe_Container{
       font-size: 1rem;
    }
@@ -87,6 +87,6 @@
 
 @media(max-width: 600px){
    .AboutMe_h1{
-      width: 90%;
+      width: 80%;
    }
 }

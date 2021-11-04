@@ -1,9 +1,8 @@
 import "./AboutMe.css"
-import { useEffect, useRef } from "react"
+import { lazy, Suspense, useEffect } from "react"
 import paragraphOrnament from "../../Assets/Images/Daco_40936 (1).png"
 import Aos from "aos"
 import "aos/dist/aos.css"
-import Galery from "../../Components/Galery/Galery"
 import Img1 from "../../Assets/O mnie/1781858_508677732582657_543189622_o.jpg"
 import Img2 from "../../Assets/O mnie/241635603_4321978131252579_5802682755729074331_n.jpg"
 import Img3 from "../../Assets/O mnie/242441948_4365331123583946_990698166353954655_n.jpg"
@@ -18,6 +17,8 @@ import imgDyploms7 from "../../Assets/O mnie/slajd3/245439860_897864857500320_36
 import imgDyploms8 from "../../Assets/O mnie/slajd3/245497733_4605346046154982_6930266027229283329_n.jpg"
 import imgDyploms9 from "../../Assets/O mnie/slajd3/246648210_407646917405422_5343308388623484731_n.jpg"
 import imgDyploms10 from "../../Assets/O mnie/slajd3/246791318_227675642759787_448839878675796262_n.jpg"
+
+const Galery = lazy(() => import("../../Components/Galery/Galery"))
 
 const paragraphData = [
    {
@@ -108,28 +109,15 @@ const paragraphData = [
    },
 ]
 
-export default function AboutMe({setAboutMeRef, setAboutMeRefSCroll}){
-
-   const aboutMeRef = useRef(null)
-   
+export default function AboutMe(){
    useEffect(() => {
-      setAboutMeRef(aboutMeRef.current)
-      setAboutMeRefSCroll(aboutMeRef.current.getBoundingClientRect().top)
       Aos.init({ duration: 500, once: true, })
    }, [])  
    
    return (
-      <>
+      <Suspense fallback={<p>Ładowanie ...</p>}>
          <div className="AboutMe_Container" >
-            <div style={{
-               width: '100%',
-               height: '60px',
-               position: 'absolute',
-               top: '-60px'
-            }} id="AboutMeId" ref={aboutMeRef}></div> {/* cheat div to fix scroll bug */}
-
-
-
+            
             <section className="AboutMe_Section">
                <header>
                   <h1 data-aos="zoom-in" className="pageTitle AboutMe_h1">O mnie</h1>
@@ -174,6 +162,6 @@ export default function AboutMe({setAboutMeRef, setAboutMeRefSCroll}){
 
             </section>
          </div>
-      </>
+      </Suspense>
    )
 }

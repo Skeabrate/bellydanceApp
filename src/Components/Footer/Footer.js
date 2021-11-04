@@ -1,9 +1,10 @@
 import "./Footer.css"
+import { StyledLogo } from "../Header/Header.styles"
 
 const Footer = () => {
    return (
       <footer className="footerStyle">
-         <div className="logo" style={{color: 'black', textShadow: 'none'}}>Leyla Bellydance</div>
+         <StyledLogo to="/" isBlack>Leyla Bellydance</StyledLogo>
          <div className="footerKontakt">
 
             <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/user/LeylaWloclawek/videos" >
