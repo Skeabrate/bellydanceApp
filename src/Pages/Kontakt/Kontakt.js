@@ -6,10 +6,14 @@ import { imgLoad } from "../../helpers/imgLoad"
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
 import { socialsData } from "./KontaktData"
 import { StyledHeader, StyledArticle, StyledKontakt, StyledTitle } from "./Kontakt.styles"
+import { StyledScrollTo } from "../../GlobalStyles.styles"
+import ScrollButton from "../../Components/ScrollButton/ScrollButton"
 
 export default function Kontakt() {
    const headerBackgroundRef = useRef(null)
    const [showContent, setShowContent] = useState(false)
+
+   const scrollRef = useRef(null)
 
    useEffect(() => {
       document.title = "Kontakt - Leyla Bellydance"
@@ -27,7 +31,10 @@ export default function Kontakt() {
       <>
          {!showContent ? <LoadingScreen /> : null }
          <section>
-            <StyledHeader ref={headerBackgroundRef}></StyledHeader>
+            <StyledHeader ref={headerBackgroundRef}>
+               <StyledScrollTo ref={scrollRef} />
+               <ScrollButton scrollRef={scrollRef.current} />
+            </StyledHeader>
             <StyledArticle>
                <StyledKontakt>
 

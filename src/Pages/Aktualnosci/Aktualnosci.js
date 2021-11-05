@@ -12,15 +12,17 @@ import { imgLoad } from "../../helpers/imgLoad"
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
 
 import { StyledOrnamentDown } from "../../Components/PageTitle/PageTitle.styles"
-import { StyledTextOrnament } from "../../GlobalStyles.styles"
+import { StyledScrollTo, StyledTextOrnament } from "../../GlobalStyles.styles"
 import { StyledContainer, StyledArticle, StyledPost, StyledDate, StyledTitle, StyledVideo, StyledLoading } from "./Aktualnosci.styles"
+import ScrollButton from "../../Components/ScrollButton/ScrollButton"
 
 export default function Aktualnosci() {
    const [postData, setPostData] = useState()
    const [loading, setLoading] = useState(false)
    const [showContent, setShowContent] = useState(false)
 
-   const headerBackgroundRef = useRef()
+   const headerBackgroundRef = useRef(null)
+   const scrollRef = useRef(null)
 
    const fetchPosts = async () => {
       try{
@@ -49,7 +51,10 @@ export default function Aktualnosci() {
    return (
       <>
          {!showContent ? <LoadingScreen /> : null }
-         <StyledContainer ref={headerBackgroundRef}></StyledContainer>
+         <StyledContainer ref={headerBackgroundRef}>
+            <StyledScrollTo ref={scrollRef}/>
+            <ScrollButton scrollRef={scrollRef.current}/>
+         </StyledContainer>
 
          {loading ? (
             <>

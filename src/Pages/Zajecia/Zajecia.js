@@ -7,14 +7,16 @@ import Galery from "../../Components/Galery/Galery"
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
 import { imgLoad } from "../../helpers/imgLoad"
 
-import { StyledTextOrnament } from "../../GlobalStyles.styles"
+import { StyledScrollTo, StyledTextOrnament } from "../../GlobalStyles.styles"
 import { StyledAlladinLamp } from "../../GlobalStyles.styles"
 import { StyledContainer, StyledHeader, StyledWrapper, StyledParagraph } from "./Zajecia.styles"
+import ScrollButton from "../../Components/ScrollButton/ScrollButton"
 
 export default function Aktualnosci() {
    const [showContent, setShowContent] = useState(false)
 
-   const headerBackgroundRef = useRef()
+   const headerBackgroundRef = useRef(null)
+   const scrollRef = useRef(null)
 
    useEffect(() => {
       document.title = "Zajęcia taneczne - Leyla Bellydance"
@@ -31,7 +33,10 @@ export default function Aktualnosci() {
       <>
          {!showContent ? <LoadingScreen /> : null }
          <section>
-            <StyledHeader ref={headerBackgroundRef}></StyledHeader>
+            <StyledHeader ref={headerBackgroundRef}>
+               <StyledScrollTo ref={scrollRef} />
+               <ScrollButton isVisible scrollRef={scrollRef.current} />
+            </StyledHeader>
             
             <PageTitle
                title="Taniec orientalny jest dla każdej z nas ♥"

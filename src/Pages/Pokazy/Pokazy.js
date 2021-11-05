@@ -8,15 +8,17 @@ import vidPlaceHolder from "../../Assets/Pokazy/img9.jpg"
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
 import { imgLoad } from "../../helpers/imgLoad"
 import GaleryPokazy from "./GaleryPokazy/GaleryPokazy"
-import { StyledAlladinLamp } from "../../GlobalStyles.styles"
+import { StyledAlladinLamp, StyledScrollTo } from "../../GlobalStyles.styles"
 
 import { StyledWrapper, StyledContainer, StyledHeader, StyledTextContainer, StyledText, StyledParagraph, StyledList, StyledOrnament, StyledVideo } from "./Pokazy.styles"
+import ScrollButton from "../../Components/ScrollButton/ScrollButton"
 
 export default function Aktualnosci() {
    const [videoSrc, setVideoSrc] = useState('')
    const [showContent, setShowContent] = useState(false)
 
-   const headerBackgroundRef = useRef()
+   const headerBackgroundRef = useRef(null)
+   const scrollRef = useRef(null)
 
    const fetchVideo = async () => {
       try{
@@ -47,7 +49,10 @@ export default function Aktualnosci() {
       <>
          {!showContent ? <LoadingScreen /> : null }
          <section>
-            <StyledHeader ref={headerBackgroundRef}></StyledHeader>
+            <StyledHeader ref={headerBackgroundRef}>
+               <StyledScrollTo ref={scrollRef} />
+               <ScrollButton scrollRef={scrollRef.current} />
+            </StyledHeader>
             <article>
                {/* Text headers */}
                <PageTitle 

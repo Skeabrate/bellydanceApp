@@ -15,6 +15,7 @@ export const StyledHomepageWrapper = styled.section`
    background-color: var(--light);
    position: relative;
 `
+
 export const StyledTitleContainer = styled.div`
    display: flex;
    flex-direction: column;
