@@ -107,15 +107,17 @@ export const StyledNav = styled.ul`
 
 
 export const StyledNavItem = styled(Link)`
+   display: flex;
+   align-items: center;
    color: var(--light);
    letter-spacing: 1px;
    text-decoration: none;
-   padding-bottom: 5px;
-   display: inline-block;
    position: relative;
    transition: all 0.3s 0s ease-in-out;
    text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
-
+   height: ${({isToggled}) => isToggled ? '100px' : '50px'};
+   position: relative;
+   
    &::selection{
       background-color: var(--selectTitle);
       color: black;
@@ -124,21 +126,20 @@ export const StyledNavItem = styled(Link)`
 
    &::after{
       content: "";
-      background: none repeat scroll 0 0 transparent;
-      bottom: 0;
-      display: block;
-      height: 2px;
-      left: 50%;
       position: absolute;
-      background: white;
-      transition: width 0.3s ease 0s, left 0.3s ease 0s;
-      width: 0;
-      border-radius: 10px;
+      bottom: 0;
+      width: 100%;
+      padding: 0 5px;
+      height: 4px;
+      background-color: var(--light);
+      opacity: 0;
+      transition: opacity .2s ease-in-out;
+      border-radius: 50px;
    }
 
+
    &:hover::after{
-      width: 100%; 
-      left: 0; 
+      opacity: 0.8;
    }
 
    @media (max-width: 1000px){
@@ -148,8 +149,7 @@ export const StyledNavItem = styled(Link)`
       font-size: 1.5rem;
 
       &:hover::after { 
-         width: 0; 
-         left: 0; 
+         display: none;
       }
 
       &:hover{

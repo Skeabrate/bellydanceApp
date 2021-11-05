@@ -69,11 +69,11 @@ const Header = () => {
 
 
                <StyledNav isToggled={toggle}>
-                  <StyledNavItem exact to="/" onClick={changeUrlHandler}>Home</StyledNavItem>
-                  <StyledNavItem to="/Aktualności" onClick={changeUrlHandler}>Aktualności</StyledNavItem>
-                  <StyledNavItem to="/Pokazy" onClick={changeUrlHandler}>Pokazy</StyledNavItem>
-                  <StyledNavItem to="/Zajęcia" onClick={changeUrlHandler}>Zajęcia taneczne</StyledNavItem>
-                  <StyledNavItem to="/Kontakt" onClick={changeUrlHandler}>Kontakt</StyledNavItem>
+                  <StyledNavItem isToggled={headerToggle} exact to="/" onClick={changeUrlHandler}>Home</StyledNavItem>
+                  <StyledNavItem isToggled={headerToggle} to="/Aktualności" onClick={changeUrlHandler}>Aktualności</StyledNavItem>
+                  <StyledNavItem isToggled={headerToggle} to="/Pokazy" onClick={changeUrlHandler}>Pokazy</StyledNavItem>
+                  <StyledNavItem isToggled={headerToggle} to="/Zajęcia" onClick={changeUrlHandler}>Zajęcia taneczne</StyledNavItem>
+                  <StyledNavItem isToggled={headerToggle} to="/Kontakt" onClick={changeUrlHandler}>Kontakt</StyledNavItem>
                </StyledNav>
             </nav>
          </StyledHeader>
