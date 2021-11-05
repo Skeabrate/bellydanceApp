@@ -1,10 +1,9 @@
-import "./Galery.css"
 import { useState, useEffect } from "react"
-import CloseIcon from '@material-ui/icons/Close';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+
+import { StyledPageTitle } from "../PageTitle/PageTitle.styles";
+import { StyledGalery ,StyledSelectedImg, StyledCloseIcon, StyledArrowBackIosIcon, StyledArrowForwardIosIcon, StyledImage } from "./Galery.styles";
 
 export default function Galery({ imagesData, displayTitle, label }) {
    const [selectImg, setSelectImg] = useState(false)
@@ -77,32 +76,29 @@ export default function Galery({ imagesData, displayTitle, label }) {
    return (
       <div>
          {displayTitle ? (
-            <h2 className="galeryHeader">{label}</h2>
+            <StyledPageTitle>{label}</StyledPageTitle>
          ) : null}
    
-         <div className={`selectImg ${selectImg ? "open" : null}`}>
+         <StyledSelectedImg isOpen={selectImg}>
             {imagesData[current].imgSrc !== undefined ? (
                <img alt="" src={imagesData[current].imgSrc}/>
             ) : null
             } 
             
-            <CloseIcon
-               className="closeIcon"
+            <StyledCloseIcon
                onClick={() => setSelectImg(false)}
             />
-            <ArrowBackIosIcon 
-               className="leftIcon" 
+            <StyledArrowBackIosIcon 
                onClick={prevSlide}
             />
-            <ArrowForwardIosIcon 
-               className="rightIcon" 
+            <StyledArrowForwardIosIcon 
                onClick={nextSlide}
             />
-         </div>
-         <div className={`galery ${classForOne ? 'galeryForOne' : null} ${classForTwo ? 'galeryForTwo' : null}`}>
+         </StyledSelectedImg>
+
+         <StyledGalery isOne={classForOne} isTwo={classForTwo}>
             {imagesData.map(image => (
-               <div 
-                  className='galeryImage'
+               <StyledImage
                   key={image.id}
                   onClick={() => getImg(image.id)}
                >
@@ -111,9 +107,9 @@ export default function Galery({ imagesData, displayTitle, label }) {
                      src={image.imgSrc}
                      alt=""
                   />
-               </div>
+               </StyledImage>
             ))}
-         </div>
+         </StyledGalery>
       </div>
    )
 }

@@ -1,7 +1,5 @@
-import "./Header.css"
-import { NavLink } from "react-router-dom"
 import { useEffect, useRef, useState, useMemo } from "react"
-import { StyledHeader, StyledHeaderBackground, StyledLogo } from "./Header.styles"
+import { StyledHeader, StyledHeaderBackground, StyledLogo, StyledNavItem, StyledNav, StyledHamburger, StyledHamburgerInner, StyledHamburgerWrapper } from "./Header.styles"
 
 const Header = () => {
    const [toggle, setToggle] = useState(false)
@@ -63,22 +61,20 @@ const Header = () => {
             <StyledLogo isToggled={headerToggle} to="/" onClick={changeUrlHandler}>Leyla Bellydance</StyledLogo>
 
             <nav>
-               <button className="hamburger" onClick={toggleMenu}>
-                  <span className="hamburger__box">
-                     <span className={`hamburger__inner__after ${toggle ? 'hamburger__inner__afterClose' : null}`}></span>
-                     <span className={`hamburger__inner ${toggle ? 'hamburger__innerClose' : null}`}></span>
-                     <span className={`hamburger__inner__before ${toggle ? 'hamburger__inner__beforeClose' : null}`}></span>
-                  </span>
-               </button>
+               <StyledHamburger onClick={toggleMenu}>
+                  <StyledHamburgerWrapper>
+                     <StyledHamburgerInner isToggled={toggle}></StyledHamburgerInner>
+                  </StyledHamburgerWrapper>
+               </StyledHamburger>
 
 
-               <ul className={`navList ${toggle ? `toggledMenu` : null}`}>
-                  <NavLink exact to="/" className="navItem" onClick={changeUrlHandler}>Home</NavLink>
-                  <NavLink to="/Aktualności" className="navItem" onClick={changeUrlHandler}>Aktualności</NavLink>
-                  <NavLink to="/Pokazy" className="navItem" onClick={changeUrlHandler}>Pokazy</NavLink>
-                  <NavLink to="/Zajęcia" className="navItem" onClick={changeUrlHandler}>Zajęcia taneczne</NavLink>
-                  <NavLink to="/Kontakt" className="navItem" onClick={changeUrlHandler}>Kontakt</NavLink>
-               </ul>
+               <StyledNav isToggled={toggle}>
+                  <StyledNavItem exact to="/" onClick={changeUrlHandler}>Home</StyledNavItem>
+                  <StyledNavItem to="/Aktualności" onClick={changeUrlHandler}>Aktualności</StyledNavItem>
+                  <StyledNavItem to="/Pokazy" onClick={changeUrlHandler}>Pokazy</StyledNavItem>
+                  <StyledNavItem to="/Zajęcia" onClick={changeUrlHandler}>Zajęcia taneczne</StyledNavItem>
+                  <StyledNavItem to="/Kontakt" onClick={changeUrlHandler}>Kontakt</StyledNavItem>
+               </StyledNav>
             </nav>
          </StyledHeader>
 

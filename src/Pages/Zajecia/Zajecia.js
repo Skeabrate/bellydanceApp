@@ -2,11 +2,14 @@ import { useEffect, useState, useRef } from "react"
 import zajeciaPlakat from "../../Assets/Zajecia/zajeciaOgloszenie.jpg"
 import zajeciaFooterImg from "../../Assets/Zajecia/zajeciaFooter.jpg"
 import paragraphOrnament from "../../Assets/Images/Daco_40936 (1).png"
-import "./Zajecia.css"
 import PageTitle from "../../Components/PageTitle/PageTitle"
 import Galery from "../../Components/Galery/Galery"
-import { imgLoad } from "../../helpers/imgLoad"
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
+import { imgLoad } from "../../helpers/imgLoad"
+
+import { StyledTextOrnament } from "../../GlobalStyles.styles"
+import { StyledAlladinLamp } from "../../GlobalStyles.styles"
+import { StyledContainer, StyledHeader, StyledWrapper, StyledParagraph } from "./Zajecia.styles"
 
 export default function Aktualnosci() {
    const [showContent, setShowContent] = useState(false)
@@ -27,105 +30,104 @@ export default function Aktualnosci() {
    return (
       <>
          {!showContent ? <LoadingScreen /> : null }
-         <section className="zajeciaBackground">
-
-            <div className="headerZajecia" ref={headerBackgroundRef}></div>
+         <section>
+            <StyledHeader ref={headerBackgroundRef}></StyledHeader>
             
             <PageTitle
                title="Taniec orientalny jest dla każdej z nas ♥"
                titleH2="Bez względu na wiek, predyspozycje fizyczne, czy wcześniejszą aktywność ruchową, każda z Pań może rozpocząć naukę tańca belly dance."
-               style="zajeciaTitleBorderTop"
                displayOrns={true}
+               showBorder
             />
 
-            <div className="zajeciaContainer">
+            <StyledContainer>
                <article>
-                  <div className="zajeciaInfo">
+                  <StyledWrapper>
                      <div>
-                        <p className="zajeciaParagraph">
+                        <StyledParagraph>
                            Prowadząc zajęcia zwracam uwagę na szlifowanie techniki, pracuję nad gracją, zmysłowością i poprawą kondycji oraz rzeźby każdej z ćwiczących pań.
-                        </p>
+                        </StyledParagraph>
 
-                        <p className="zajeciaParagraph">
+                        <StyledParagraph>
                            Uczę ich różnych styli tańca orientalnego, poszerzając ich wiedzę teoretyczną i praktyczną w zakresie tańca arabskiego.
-                        </p>
+                        </StyledParagraph>
 
-                        <p className="zajeciaParagraph">
+                        <StyledParagraph>
                            Do każdej swojej tancerki staram się podchodzić w sposób zindywidualizowany, pomagając dostrzec swe predyspozycje i rozwijać możliwości.
-                        </p>
+                        </StyledParagraph>
 
-                        <p className="zajeciaParagraph">
+                        <StyledParagraph>
                            Czas poświecony na taniec brzucha przynosi nam wymierne korzyści zarówno dla ciała, psychiki i naszej duszy.
-                        </p>
+                        </StyledParagraph>
 
                         <h3>Dzięki zajęciom tańca brzucha możemy:</h3>
-                        <ul className="zajeciaList">
-                           <li className="zajeciaListItem">
-                              <span className="lampaAlladyna"></span>
+                        <ul style={{listStyle: 'none'}}>
+                           <li>
+                              <StyledAlladinLamp></StyledAlladinLamp>
                               zniwelować ból pleców
                            </li>
 
-                           <li className="zajeciaListItem">
-                              <span className="lampaAlladyna"></span>
+                           <li>
+                              <StyledAlladinLamp></StyledAlladinLamp>
                               poprawić  ogólną kondycję
                            </li>
 
-                           <li className="zajeciaListItem">
-                              <span className="lampaAlladyna"></span>
+                           <li>
+                              <StyledAlladinLamp></StyledAlladinLamp>
                               wzmocnić mięśnie brzucha, miednicy, pleców, ramion i nóg. A im silniejsze mięśnie brzucha, to zdrowszy i bardziej odciążony kręgosłup!
                            </li>
 
-                           <li className="zajeciaListItem">
-                              <span className="lampaAlladyna"></span>
+                           <li>
+                              <StyledAlladinLamp></StyledAlladinLamp>
                               usuwać wszelkie niedogodności związane z siedzącym trybem życia.
                            </li>
 
-                           <li className="zajeciaListItem">
-                              <span className="lampaAlladyna"></span>
+                           <li>
+                              <StyledAlladinLamp></StyledAlladinLamp>
                               dzięki technice opartej na izolacji pogłębiać  świadomość ciała i polepszać koordynację ruchową.
                            </li>
 
-                           <li className="zajeciaListItem">
-                              <span className="lampaAlladyna"></span>
+                           <li>
+                              <StyledAlladinLamp></StyledAlladinLamp>
                               pracując systematycznie nad  zwiększeniem zakresu ruchu w stawach, siłą mięśni i ich rozciąganiem, utrzymaniem ładnej, wyprostowanej sylwetki nabierać gracji, elegancji w codziennym ruchu
                            </li>
 
-                           <li className="zajeciaListItem">
-                              <span className="lampaAlladyna"></span>
+                           <li>
+                              <StyledAlladinLamp></StyledAlladinLamp>
                               w sposób przyjemny pozbyć się zbędnych kilogramów - tańcząc w takt orientalnej muzyki spalamy ok. 500kc/h !
                            </li>
                         </ul>
 
                      </div>
                      <div style={{ textAlign: 'center', margin: '0 auto' }}>
-                        <img src={paragraphOrnament} className="paragraphOrnament" alt="" />
+                        <StyledTextOrnament src={paragraphOrnament} alt="" />
                      </div>
 
                      <Galery imagesData={[{ id: 0, imgSrc: zajeciaFooterImg }]} />
 
-                  </div>
+                  </StyledWrapper>
                </article>
 
                <article>
-                  <div className="zajeciaInfo" style={{ borderRight: 'none', borderBottom: 'none' }}>
-                     <p className="zajeciaParagraph">
+                  <StyledWrapper style={{ borderRight: 'none', borderBottom: 'none' }}>
+                     <StyledParagraph>
                         Dzieki wymaganej systematyczności w treningach taniec orientalny uczy nas cierpliwości, wytrwałości i szacunku dla swojego ciała.
                         Jednocześnie jest lekcją pokory wobec nieznanej nam wiedzy, wymagającą naszego zaangażowania i  pracy, jeśli chcemy rozwijać się
                         w tym wyjątkowym tańcu. Poprzez pracę z emocjami i wysiłek fizyczny pozwala  uwolnić się od napięć i
                         skupić się na samej sobie - tym, co czuje nasze ciało -  na  własnych odczuciach, emocjach.
                         Taniec w gronie innych kobiet toskonale wpływa na nasz nastrój i samopoczucie, pozwala rozwijać swą pasję , mieć satysfakcje
                         z osobistych postępów, a nawet dzielić się nią  podczas wspólnych występów na scenie, czy tanecznym parkiecie.
-                     </p>
+                     </StyledParagraph>
 
                      <div style={{ margin: '0 auto' }}>
-                        <img src={paragraphOrnament} className="paragraphOrnament" alt="" />
+                        <StyledTextOrnament src={paragraphOrnament} alt="" />
                      </div>
 
                      <Galery imagesData={[{ id: 0, imgSrc: zajeciaPlakat }]} />
 
-                  </div>
+                  </StyledWrapper>
                </article>
-            </div>
+            </StyledContainer>
          </section>
       </>
    )

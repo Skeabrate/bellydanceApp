@@ -8,7 +8,7 @@ import img6 from "../../../Assets/Pokazy/img6.jpg"
 import img7 from "../../../Assets/Pokazy/img7.jpg"
 import img8 from "../../../Assets/Pokazy/img8.jpg"
 import img9 from "../../../Assets/Pokazy/img9.jpg"
-import img10 from "../../../Assets/Images/banery/plakat Agnus.jpg"
+import img10 from "../../../Assets/Images/banery/plakatAgnus.jpg"
 
 const pokazyImages = [
    {

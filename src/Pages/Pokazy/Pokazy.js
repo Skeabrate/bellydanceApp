@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react"
-import "./Pokazy.css"
 import paragraphOrnament from "../../Assets/Images/Daco_40936 (1).png"
 import Aos from "aos"
 import "aos/dist/aos.css"
@@ -9,6 +8,9 @@ import vidPlaceHolder from "../../Assets/Pokazy/img9.jpg"
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
 import { imgLoad } from "../../helpers/imgLoad"
 import GaleryPokazy from "./GaleryPokazy/GaleryPokazy"
+import { StyledAlladinLamp } from "../../GlobalStyles.styles"
+
+import { StyledWrapper, StyledContainer, StyledHeader, StyledTextContainer, StyledText, StyledParagraph, StyledList, StyledOrnament, StyledVideo } from "./Pokazy.styles"
 
 export default function Aktualnosci() {
    const [videoSrc, setVideoSrc] = useState('')
@@ -45,7 +47,7 @@ export default function Aktualnosci() {
       <>
          {!showContent ? <LoadingScreen /> : null }
          <section>
-            <div className="headerPokazy" ref={headerBackgroundRef}></div>
+            <StyledHeader ref={headerBackgroundRef}></StyledHeader>
             <article>
                {/* Text headers */}
                <PageTitle 
@@ -56,45 +58,45 @@ export default function Aktualnosci() {
                /> 
 
                {/* Text second section */}
-               <div data-aos="fade-up" className="pokazyInfo">
-                  <div className="pokazyInfoContainer">
+               <StyledWrapper data-aos="fade-up">
+                  <StyledContainer>
 
-                     <div className="pokazyParagraphContainer">
-                        <div className="pokazyText">
-                           <p className="pokazyParagraph">
+                     <StyledTextContainer>
+                        <StyledText>
+                           <StyledParagraph>
                               Program i charakter pokazu może być dostosowany do rodzaju imprezy okolicznościowej oraz oczekiwań Klienta,
                               gdyż w repertuarze Leyli znajdują się:
-                           </p>
+                           </StyledParagraph>
 
-                           <ul className="pokazyList">
-                              <li className="pokazyListItem"><span className="lampaAlladyna"></span>pokazy z gatunku fantasy belly dance, czyli taneczne show z rekwizytami: skrzydłami Izydy, woalem, wachlarzami,</li>
-                              <li className="pokazyListItem"><span className="lampaAlladyna"></span>nowoczesny pop</li>
-                              <li className="pokazyListItem"><span className="lampaAlladyna"></span>zmysłowa klasyka</li>
-                              <li className="pokazyListItem"><span className="lampaAlladyna"></span>radosny folklor do wesołej muzyki</li>
-                           </ul>
+                           <StyledList>
+                              <li><StyledAlladinLamp></StyledAlladinLamp>pokazy z gatunku fantasy belly dance, czyli taneczne show z rekwizytami: skrzydłami Izydy, woalem, wachlarzami,</li>
+                              <li><StyledAlladinLamp></StyledAlladinLamp>nowoczesny pop</li>
+                              <li><StyledAlladinLamp></StyledAlladinLamp>zmysłowa klasyka</li>
+                              <li><StyledAlladinLamp></StyledAlladinLamp>radosny folklor do wesołej muzyki</li>
+                           </StyledList>
 
-                           <p className="pokazyParagraph">
+                           <StyledParagraph>
                               Na zakończenie pokazu proponujemy wspólną zabawę z Gośćmi przy dźwiękach znanych piosenek Shakiry, Tarkana, czy Arasha.
                               Nauka podstawowych ruchów belly dance rozweseli nawet najmniej roztańczonych Gości!
-                           </p>
-                        </div>
+                           </StyledParagraph>
+                        </StyledText>
 
                         <div style={{ textAlign: 'center' }}>
-                           <img src={paragraphOrnament} className="paragraphOrnament ornamentPokazy" alt="" />
+                           <StyledOrnament src={paragraphOrnament} alt="textOrnament" />
                         </div>
-                     </div>
+                     </StyledTextContainer>
 
                      {videoSrc ? (
-                        <video className="pokazyVideo" controls>
+                        <StyledVideo controls>
                            <source src={videoSrc} type="video/mp4" poster={vidPlaceHolder}/> 
-                        </video>
+                        </StyledVideo>
                      ) :  null}
 
-                  </div>
-               </div>
+                  </StyledContainer>
+               </StyledWrapper>
 
             </article>
-            <div style={{padding: '0 6vw'}}>
+            <div style={{padding: '40px 6vw 0'}}>
                <GaleryPokazy />
             </div>
          </section>

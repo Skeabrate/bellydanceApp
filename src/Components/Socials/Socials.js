@@ -1,16 +1,18 @@
-export default function Socials({ socialsData, classList, classItem, classLink, classSocial }){
+import { StyledList, StyledListItem, StyledLink, StyledImg } from "./Socials.styles"
+
+export default function Socials({ socialsData }){
    return (
-      <ul className={classList}>
+      <StyledList>
          {socialsData.map((item) => {
             return (
-               <li key={item.id} data-aos={item.fade} className={classItem}>
-                  <a href={item.link} target="_blank" rel="noopener noreferrer" title={item.type} className={classLink}>
-                     <img alt="" className={classSocial} src={item.social} />
+               <StyledListItem key={item.id} data-aos={item.fade}>
+                  <StyledLink href={item.link} target="_blank" rel="noopener noreferrer" title={item.type}>
+                     <StyledImg alt="" src={item.social} />
                      <p>{item.type}</p>
-                  </a>
-               </li>
+                  </StyledLink>
+               </StyledListItem>
             )
          })}
-      </ul>
+      </StyledList>
    )
 }

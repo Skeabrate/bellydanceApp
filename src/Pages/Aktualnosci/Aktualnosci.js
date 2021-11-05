@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from "react"
-import "./Aktualnosci.css"
 import Aos from "aos"
 import "aos/dist/aos.css"
 import PageTitle from "../../Components/PageTitle/PageTitle"
@@ -11,6 +10,10 @@ import { objectToArrayWithId } from "../../helpers/objects"
 import PuffLoader from "react-spinners/PuffLoader"
 import { imgLoad } from "../../helpers/imgLoad"
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
+
+import { StyledOrnamentDown } from "../../Components/PageTitle/PageTitle.styles"
+import { StyledTextOrnament } from "../../GlobalStyles.styles"
+import { StyledContainer, StyledArticle, StyledPost, StyledDate, StyledTitle, StyledVideo, StyledLoading } from "./Aktualnosci.styles"
 
 export default function Aktualnosci() {
    const [postData, setPostData] = useState()
@@ -46,7 +49,7 @@ export default function Aktualnosci() {
    return (
       <>
          {!showContent ? <LoadingScreen /> : null }
-         <div className="headerAktualnosci" ref={headerBackgroundRef}></div>
+         <StyledContainer ref={headerBackgroundRef}></StyledContainer>
 
          {loading ? (
             <>
@@ -57,58 +60,54 @@ export default function Aktualnosci() {
                />
 
                <section>
-                  <div className="aktualnosciSection">
-                     {postData.map(post => {
-                        const lastIndex = postData.length - 1;
-                        const imgTable = objectToArrayWithId(post.images)
+                  {postData.map(post => {
+                     const lastIndex = postData.length - 1;
+                     const imgTable = objectToArrayWithId(post.images)
 
-                        return (
-                           <div key={post.title}>
-                              <article className={`aktualnosciArticle ${post === postData[0] ? 'aktualnosciArticleFirst' : null}`}>
-                                 <div className="aktualnosciPost">
-                                    <div className="aktualnosciDate">{post.date}</div>
+                     return (
+                        <div key={post.title}>
+                           <StyledArticle isFirst={post === postData[0]}>
+                              <StyledPost>
+                                 <StyledDate>{post.date}</StyledDate>
 
-                                    <header>
-                                       <h1 className="aktualnosciPostTitle">{post.title}</h1>
-                                    </header>
+                                 <header>
+                                    <StyledTitle>{post.title}</StyledTitle>
+                                 </header>
 
-                                    <div>
-                                       {post.desc.map(opis => (
-                                          <p key={opis}>{opis}</p>
-                                       ))}
-                                    </div>
-
-
-                                    <Galery imagesData={imgTable} />
-
-                                    {post.video ? (
-                                       <video className="aktualnosciVideo" controls>
-                                          <source src={post.video.src} type="video/mp4" />
-                                       </video>
-                                    ) : null}
-
-                                    <img src={paragraphOrnament} className="paragraphOrnament" alt="" style={{ margin: 0 }} />
-
-
-
+                                 <div>
+                                    {post.desc.map(opis => (
+                                       <p key={opis}>{opis}</p>
+                                    ))}
                                  </div>
-                              </article>
 
-                              {post !== postData[lastIndex] ? (
-                                 <div style={{ textAlign: 'center' }}>
-                                    <img alt="" className="pageTitleOrnamentDown" src={kulki} />
-                                 </div>
-                              ) : null}
-                           </div>
-                        )
-                     })}
-                  </div>
+
+                                 <Galery imagesData={imgTable} />
+
+                                 {post.video ? (
+                                    <StyledVideo controls>
+                                       <source src={post.video.src} type="video/mp4" />
+                                    </StyledVideo>
+                                 ) : null}
+
+                                 <StyledTextOrnament src={paragraphOrnament} alt="" style={{ margin: 0 }} />
+
+                              </StyledPost>
+                           </StyledArticle>
+
+                           {post !== postData[lastIndex] ? (
+                              <div style={{ textAlign: 'center' }}>
+                                 <StyledOrnamentDown alt="" style={{marginTop: '0'}} src={kulki} />
+                              </div>
+                           ) : null}
+                        </div>
+                     )
+                  })}
                </section>
             </>
          ) : (
-            <div className="loadingContainer">
+            <StyledLoading>
                <PuffLoader size={100} color="rgb(255, 187, 0)" />
-            </div>
+            </StyledLoading>
          )}
       </>
    )

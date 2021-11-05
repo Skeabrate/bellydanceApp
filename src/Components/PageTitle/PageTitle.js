@@ -1,23 +1,26 @@
 import headerOrnament from "../../Assets/Images/kontaktRamkaKpia.png"
 import headerOrnamentDown from "../../Assets/Images/kontaktRamkaKulki.png"
+import "aos/dist/aos.css"
 
-export default function PageTitle({title, titleH2, style, displayOrns}) {
+import { StyledContainer, StyledOrnamentUp, StyledOrnamentDown, StyledPageTitle, StyledPageTitleSecond } from "./PageTitle.styles"
+
+export default function PageTitle({title, titleH2, showBorder, displayOrns}) {
    return (
       <header>
-         <div className={`pageTitleContainer ${style}`}>
+         <StyledContainer showBorder={showBorder}>
             {displayOrns ? (
-               <img data-aos="zoom-in" data-aos-once="false" className="pageTitleOrnament" alt="" src={headerOrnament} />
+               <StyledOrnamentUp data-aos="zoom-in" data-aos-once="false" alt="textOrnament" src={headerOrnament} />
             ) : null}
             
-            <h1 data-aos="fade-right" data-aos-once="false" className="pageTitle">{title}</h1>
+            <StyledPageTitle data-aos="fade-right" data-aos-once="false">{title}</StyledPageTitle>
             {titleH2 !== null ? (
-               <h2 data-aos="fade-left" data-aos-once="false" className="pageTitleH2">{titleH2}</h2>
+               <StyledPageTitleSecond data-aos="fade-left" data-aos-once="false">{titleH2}</StyledPageTitleSecond>
             ) : null}
 
             {displayOrns ? (
-               <img data-aos="zoom-in" data-aos-once="false" className="pageTitleOrnamentDown" alt="" src={headerOrnamentDown} />
+               <StyledOrnamentDown data-aos="zoom-in" data-aos-once="false" alt="textOrnament" src={headerOrnamentDown} />
             ) : null}
-         </div>
+         </StyledContainer>
       </header>
    )
 }
