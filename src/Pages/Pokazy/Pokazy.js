@@ -4,36 +4,22 @@ import Aos from "aos"
 import "aos/dist/aos.css"
 import PageTitle from "../../Components/PageTitle/PageTitle"
 import axios from "../../axios"
-import vidPlaceHolder from "../../Assets/Pokazy/img9.jpg"
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
 import { imgLoad } from "../../helpers/imgLoad"
 import GaleryPokazy from "./GaleryPokazy/GaleryPokazy"
 import { StyledAlladinLamp, StyledScrollTo } from "../../GlobalStyles.styles"
+import videoSrc from "../../Assets/Pokazy/Videos/agunia.mp4"
 
 import { StyledWrapper, StyledContainer, StyledHeader, StyledTextContainer, StyledText, StyledParagraph, StyledList, StyledOrnament, StyledVideo } from "./Pokazy.styles"
 import ScrollButton from "../../Components/ScrollButton/ScrollButton"
 
 export default function Aktualnosci() {
-   const [videoSrc, setVideoSrc] = useState('')
    const [showContent, setShowContent] = useState(false)
 
    const headerBackgroundRef = useRef(null)
    const scrollRef = useRef(null)
 
-   const fetchVideo = async () => {
-      try{
-         const res = await axios.get('/Video.json')
-         setVideoSrc(res.data)
-
-      } catch (ex) {
-         console.log(ex.response)
-      } 
-      
-   }
-
    useEffect(() => {
-      fetchVideo()
-
       document.title = "Pokazy - Leyla Bellydance"
       Aos.init({ duration: 500, debounceDelay: 200})
       window.scrollTo(0, 0)
@@ -93,7 +79,7 @@ export default function Aktualnosci() {
 
                      {videoSrc ? (
                         <StyledVideo controls>
-                           <source src={videoSrc} type="video/mp4" poster={vidPlaceHolder}/> 
+                           <source src={videoSrc} type="video/mp4" /> 
                         </StyledVideo>
                      ) :  null}
 

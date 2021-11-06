@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import baner from "../../Assets/Images/banery/banerAktualnosci.jpg"
+import playBtn from "../../Assets/Images/play.png"
 
 export const StyledContainer = styled.div`
    width: 100%;
@@ -94,5 +95,61 @@ export const StyledLoading = styled.div`
    @media (max-width: 600px) {
       text-align: center;
       height: calc(100vh - 30vh);
+   }
+`
+
+export const StyledThumbnail = styled.div`
+   width: 100%;
+   height: 40vw;
+   position: relative;
+   border-radius: 10px;
+   overflow: hidden;
+   
+   img{
+      width: 100%;
+      height: 100%;
+      transition: transform .5s ease-in-out;
+   }
+
+   &:hover img{
+      transform: scale(1.05);
+   }
+`
+
+export const StyledPlay = styled.div`
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   &::after{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      opacity: 0;
+      transition: opacity .5s ease-in-out;
+   }
+
+   img{
+      width: 20vw;
+      height: 20vw;
+      opacity: 0;
+      transition: all .5s ease-in-out;
+   }
+
+   &:hover::after{
+      opacity: 0.4;
+   }
+
+   &:hover img{
+      opacity: 0.6;
    }
 `

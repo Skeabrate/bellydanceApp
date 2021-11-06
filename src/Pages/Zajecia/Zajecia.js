@@ -108,7 +108,7 @@ export default function Aktualnosci() {
                         <StyledTextOrnament src={paragraphOrnament} alt="" />
                      </div>
 
-                     <Galery imagesData={[{ id: 0, imgSrc: zajeciaFooterImg }]} />
+                     <Galery imagesData={[{ id: 0, url: zajeciaFooterImg }]} />
 
                   </StyledWrapper>
                </article>
@@ -128,7 +128,7 @@ export default function Aktualnosci() {
                         <StyledTextOrnament src={paragraphOrnament} alt="" />
                      </div>
 
-                     <Galery imagesData={[{ id: 0, imgSrc: zajeciaPlakat }]} />
+                     <Galery imagesData={[{ id: 0, url: zajeciaPlakat }]} />
 
                   </StyledWrapper>
                </article>
