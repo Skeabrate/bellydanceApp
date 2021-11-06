@@ -3,12 +3,10 @@ import paragraphOrnament from "../../Assets/Images/Daco_40936 (1).png"
 import Aos from "aos"
 import "aos/dist/aos.css"
 import PageTitle from "../../Components/PageTitle/PageTitle"
-import axios from "../../axios"
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
 import { imgLoad } from "../../helpers/imgLoad"
 import GaleryPokazy from "./GaleryPokazy/GaleryPokazy"
 import { StyledAlladinLamp, StyledScrollTo } from "../../GlobalStyles.styles"
-import videoSrc from "../../Assets/Pokazy/Videos/agunia.mp4"
 
 import { StyledWrapper, StyledContainer, StyledHeader, StyledTextContainer, StyledText, StyledParagraph, StyledList, StyledOrnament, StyledVideo } from "./Pokazy.styles"
 import ScrollButton from "../../Components/ScrollButton/ScrollButton"
@@ -77,11 +75,9 @@ export default function Aktualnosci() {
                         </div>
                      </StyledTextContainer>
 
-                     {videoSrc ? (
-                        <StyledVideo controls>
-                           <source src={videoSrc} type="video/mp4" /> 
-                        </StyledVideo>
-                     ) :  null}
+                     <StyledVideo controls>
+                        <source src="https://www.datocms-assets.com/57974/1636165650-agunia.mp4" type="video/mp4" /> 
+                     </StyledVideo>
 
                   </StyledContainer>
                </StyledWrapper>
