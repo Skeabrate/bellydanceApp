@@ -3,6 +3,7 @@ import paragraphOrnament from "../../Assets/Images/Daco_40936 (1).png"
 import Aos from "aos"
 import "aos/dist/aos.css"
 import PageTitle from "../../Components/PageTitle/PageTitle"
+import axios from "../../axios"
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
 import { imgLoad } from "../../helpers/imgLoad"
 import GaleryPokazy from "./GaleryPokazy/GaleryPokazy"
@@ -12,12 +13,26 @@ import { StyledWrapper, StyledContainer, StyledHeader, StyledTextContainer, Styl
 import ScrollButton from "../../Components/ScrollButton/ScrollButton"
 
 export default function Aktualnosci() {
+   const [videoSrc, setVideoSrc] = useState('')
    const [showContent, setShowContent] = useState(false)
 
    const headerBackgroundRef = useRef(null)
    const scrollRef = useRef(null)
 
+   const fetchVideo = async () => {
+      try{
+         const res = await axios.get('/Video.json')
+         setVideoSrc(res.data)
+
+      } catch (ex) {
+         console.log(ex.response)
+      } 
+
+   }
+
    useEffect(() => {
+      fetchVideo()
+
       document.title = "Pokazy - Leyla Bellydance"
       Aos.init({ duration: 500, debounceDelay: 200})
       window.scrollTo(0, 0)
@@ -75,9 +90,11 @@ export default function Aktualnosci() {
                         </div>
                      </StyledTextContainer>
 
-                     <StyledVideo controls>
-                        <source src="https://www.datocms-assets.com/57974/1636165650-agunia.mp4" type="video/mp4" /> 
-                     </StyledVideo>
+                     {videoSrc ? (
+                        <StyledVideo controls>
+                           <source src={videoSrc} type="video/mp4" /> 
+                        </StyledVideo>
+                     ) :  null}
 
                   </StyledContainer>
                </StyledWrapper>
