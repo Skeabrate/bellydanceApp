@@ -5,19 +5,20 @@ import PageTitle from "../../Components/PageTitle/PageTitle"
 import paragraphOrnament from "../../Assets/Images/Daco_40936 (1).png"
 import kulki from "../../Assets/Images/kontaktRamkaKulki.png"
 import Galery from "../../Components/Galery/Galery"
-import axios from "../../axios"
+import axios from "axios"
 import { objectToArrayWithId } from "../../helpers/objects"
 import PuffLoader from "react-spinners/PuffLoader"
 import { imgLoad } from "../../helpers/imgLoad"
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
+import playBtn from "../../Assets/Images/play.png"
 
 import { StyledOrnamentDown } from "../../Components/PageTitle/PageTitle.styles"
 import { StyledScrollTo, StyledTextOrnament } from "../../GlobalStyles.styles"
-import { StyledContainer, StyledArticle, StyledPost, StyledDate, StyledTitle, StyledVideo, StyledLoading } from "./Aktualnosci.styles"
+import { StyledContainer, StyledArticle, StyledPost, StyledDate, StyledTitle, StyledLoading, StyledThumbnail, StyledPlay } from "./Aktualnosci.styles"
 import ScrollButton from "../../Components/ScrollButton/ScrollButton"
 
 export default function Aktualnosci() {
-   const [postData, setPostData] = useState()
+   const [postData, setPostData] = useState([])
    const [loading, setLoading] = useState(false)
    const [showContent, setShowContent] = useState(false)
 
@@ -26,10 +27,31 @@ export default function Aktualnosci() {
 
    const fetchPosts = async () => {
       try{
-         const res = await axios.get('/Posts.json')
-         const newPost = objectToArrayWithId(res.data)
-         newPost.reverse()
-         setPostData(newPost)
+         const res = await axios.post('https://graphql.datocms.com/', {
+            query: `
+            {
+               allPosts {
+                 id
+                 date
+                 title
+                 description{
+                   value
+                 }
+                 assets{
+                   url
+                 }
+                 video{
+                   url
+                   thumbnailUrl
+                 }
+               }
+             }`
+         },{
+            headers: {
+               authorization: `Bearer ${process.env.REACT_APP_DATOCMS}`
+            }
+         })
+         setPostData(res.data.data.allPosts)
       } catch (ex) {
          console.log(ex.response)
       }
@@ -67,10 +89,14 @@ export default function Aktualnosci() {
                <section>
                   {postData.map(post => {
                      const lastIndex = postData.length - 1;
-                     const imgTable = objectToArrayWithId(post.images)
+                     const imgTable = objectToArrayWithId(post.assets)
+                     const newTable = []
+                     post.description.value.document.children.map(item => {
+                        item.children.map(item => newTable.push(item.value))
+                     })
 
                      return (
-                        <div key={post.title}>
+                        <div key={post.id}>
                            <StyledArticle isFirst={post === postData[0]}>
                               <StyledPost>
                                  <StyledDate>{post.date}</StyledDate>
@@ -79,22 +105,27 @@ export default function Aktualnosci() {
                                     <StyledTitle>{post.title}</StyledTitle>
                                  </header>
 
-                                 <div>
-                                    {post.desc.map(opis => (
-                                       <p key={opis}>{opis}</p>
-                                    ))}
-                                 </div>
-
+                                 {newTable.map(post => (
+                                    <div style={{textAlign: 'center'}} key={post}>{post}</div>
+                                 ))}
 
                                  <Galery imagesData={imgTable} />
 
                                  {post.video ? (
-                                    <StyledVideo controls>
-                                       <source src={post.video.src} type="video/mp4" />
-                                    </StyledVideo>
-                                 ) : null}
+                                    <>
+                                       <StyledTitle>Nagranie z zajęć</StyledTitle>
+                                       <a href={post.video.url} target="_blank" rel="noopener noreferrer">
+                                          <StyledThumbnail>
+                                             <img src={post.video.thumbnailUrl} alt="thumbnail"/>
+                                             <StyledPlay>
+                                                <img src={playBtn} alt="playBtn"/>
+                                             </StyledPlay>
+                                          </StyledThumbnail>
+                                       </a>
+                                    </>
+                                 ) : null} 
 
-                                 <StyledTextOrnament src={paragraphOrnament} alt="" style={{ margin: 0 }} />
+                                 <StyledTextOrnament src={paragraphOrnament} alt="" style={{ margin: 0 }} />  
 
                               </StyledPost>
                            </StyledArticle>

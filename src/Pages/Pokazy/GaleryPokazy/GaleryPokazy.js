@@ -13,43 +13,43 @@ import img10 from "../../../Assets/Images/banery/plakatAgnus.jpg"
 const pokazyImages = [
    {
       id: 0,
-      imgSrc: img1,
+      url: img1,
    },
    {
       id: 1,
-      imgSrc: img2,
+      url: img2,
    },
    {
       id: 2,
-      imgSrc: img3,
+      url: img3,
    },
    {
       id: 3,
-      imgSrc: img4,
+      url: img4,
    },
    {
       id: 4,
-      imgSrc: img5,
+      url: img5,
    },
    {
       id: 5,
-      imgSrc: img6,  
+      url: img6,  
    },
    {
       id: 6,
-      imgSrc: img7,
+      url: img7,
    },
    {
       id: 7,
-      imgSrc: img8,
+      url: img8,
    },
    {
       id: 8,
-      imgSrc: img9,
+      url: img9,
    },
    {
       id: 9,
-      imgSrc: img10,
+      url: img10,
    },
 ]
 

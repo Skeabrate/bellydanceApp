@@ -24,11 +24,11 @@ export const paragraphData = [
       img: [
          {
             id: 0,
-            imgSrc: Img4,
+            url: Img4,
          },
          {
             id: 1,
-            imgSrc: Img1,
+            url: Img1,
          },
       ],
    },
@@ -43,11 +43,11 @@ export const paragraphData = [
       img: [
          {
             id: 0,
-            imgSrc: Img2,
+            url: Img2,
          },
          {
             id: 1,
-            imgSrc: Img3,
+            url: Img3,
          },
       ],
    },
@@ -58,43 +58,43 @@ export const paragraphData = [
       img: [
          {
             id: 0,
-            imgSrc: imgDyploms1,
+            url: imgDyploms1,
          },
          {
             id: 1,
-            imgSrc: imgDyploms2,
+            url: imgDyploms2,
          },
          {
             id: 2,
-            imgSrc: imgDyploms3,
+            url: imgDyploms3,
          },
          {
             id: 3,
-            imgSrc: imgDyploms4,
+            url: imgDyploms4,
          },
          {
             id: 4,
-            imgSrc: imgDyploms5,
+            url: imgDyploms5,
          },
          {
             id: 5,
-            imgSrc: imgDyploms6,  
+            url: imgDyploms6,  
          },
          {
             id: 6,
-            imgSrc: imgDyploms7,
+            url: imgDyploms7,
          },
          {
             id: 7,
-            imgSrc: imgDyploms8,
+            url: imgDyploms8,
          },
          {
             id: 8,
-            imgSrc: imgDyploms9,
+            url: imgDyploms9,
          },
          {
             id: 9,
-            imgSrc: imgDyploms10,
+            url: imgDyploms10,
          },
       ],
       title: true,

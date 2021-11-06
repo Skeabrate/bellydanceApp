@@ -5,7 +5,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { StyledPageTitle } from "../PageTitle/PageTitle.styles";
 import { StyledGalery ,StyledSelectedImg, StyledCloseIcon, StyledArrowBackIosIcon, StyledArrowForwardIosIcon, StyledImage } from "./Galery.styles";
 
-export default function Galery({ imagesData, displayTitle, label }) {
+export default function Galery({ imagesData = [], displayTitle, label }) {
    const [selectImg, setSelectImg] = useState(false)
    const [current, setCurrent] = useState(0)
 
@@ -74,42 +74,46 @@ export default function Galery({ imagesData, displayTitle, label }) {
 
    
    return (
-      <div>
-         {displayTitle ? (
-            <StyledPageTitle>{label}</StyledPageTitle>
-         ) : null}
-   
-         <StyledSelectedImg isOpen={selectImg}>
-            {imagesData[current].imgSrc !== undefined ? (
-               <img alt="" src={imagesData[current].imgSrc}/>
-            ) : null
-            } 
-            
-            <StyledCloseIcon
-               onClick={() => setSelectImg(false)}
-            />
-            <StyledArrowBackIosIcon 
-               onClick={prevSlide}
-            />
-            <StyledArrowForwardIosIcon 
-               onClick={nextSlide}
-            />
-         </StyledSelectedImg>
+      <>
+         {imagesData.length > 0 ? (
+            <div>
+            {displayTitle ? (
+               <StyledPageTitle>{label}</StyledPageTitle>
+            ) : null}
+      
+            <StyledSelectedImg isOpen={selectImg}>
+               {imagesData[current].url !== undefined ? (
+                  <img alt="" src={imagesData[current].url}/>
+               ) : null
+               } 
+               
+               <StyledCloseIcon
+                  onClick={() => setSelectImg(false)}
+               />
+               <StyledArrowBackIosIcon 
+                  onClick={prevSlide}
+               />
+               <StyledArrowForwardIosIcon 
+                  onClick={nextSlide}
+               />
+            </StyledSelectedImg>
 
-         <StyledGalery isOne={classForOne} isTwo={classForTwo}>
-            {imagesData.map(image => (
-               <StyledImage
-                  key={image.id}
-                  onClick={() => getImg(image.id)}
-               >
-                  <LazyLoadImage
-                     effect="blur"
-                     src={image.imgSrc}
-                     alt=""
-                  />
-               </StyledImage>
-            ))}
-         </StyledGalery>
-      </div>
+            <StyledGalery isOne={classForOne} isTwo={classForTwo}>
+               {imagesData.map(image => (
+                  <StyledImage
+                     key={image.id}
+                     onClick={() => getImg(image.id)}
+                  >
+                     <LazyLoadImage
+                        effect="blur"
+                        src={image.url}
+                        alt=""
+                     />
+                  </StyledImage>
+               ))}
+            </StyledGalery>
+         </div>
+         ) : null}
+      </>
    )
 }
