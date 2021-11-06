@@ -16,6 +16,9 @@ import { StyledOrnamentDown } from "../../Components/PageTitle/PageTitle.styles"
 import { StyledScrollTo, StyledTextOrnament } from "../../GlobalStyles.styles"
 import { StyledContainer, StyledArticle, StyledPost, StyledDate, StyledTitle, StyledLoading, StyledThumbnail, StyledPlay } from "./Aktualnosci.styles"
 import ScrollButton from "../../Components/ScrollButton/ScrollButton"
+import HeroTitle from "../../Components/HeroTitle/HeroTitle"
+
+const HEADER_TITLE = "Co słychać w królestwie tańca orientalnego?"
 
 export default function Aktualnosci() {
    const [postData, setPostData] = useState([])
@@ -75,13 +78,14 @@ export default function Aktualnosci() {
          {!showContent ? <LoadingScreen /> : null }
          <StyledContainer ref={headerBackgroundRef}>
             <StyledScrollTo ref={scrollRef}/>
+            <HeroTitle label={HEADER_TITLE} isDarker/>
             <ScrollButton scrollRef={scrollRef.current}/>
          </StyledContainer>
 
          {loading ? (
             <>
                <PageTitle
-                  title="Co słychać w królestwie tańca orientalnego?"
+                  title={HEADER_TITLE}
                   titleH2={`Posty (${postData.length}):`}
                   displayOrns={true}
                />
@@ -113,7 +117,7 @@ export default function Aktualnosci() {
 
                                  {post.video ? (
                                     <>
-                                       <StyledTitle>Nagranie z zajęć</StyledTitle>
+                                       <StyledTitle>A oto filmik 😊</StyledTitle>
                                        <a href={post.video.url} target="_blank" rel="noopener noreferrer">
                                           <StyledThumbnail>
                                              <img src={post.video.thumbnailUrl} alt="thumbnail"/>

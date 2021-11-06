@@ -6,6 +6,8 @@ export const StyledContainer = styled.div`
    text-align: center;
    overflow: hidden;
    position: relative;
+   display: grid;
+   place-items: center;
 
    
    &::after{
@@ -50,6 +52,7 @@ export const StyledOrnamentDown = styled.img`
 `
 
 export const StyledPageTitle = styled.h1`
+   display: ${({isTitle, showH1}) => isTitle || showH1 ? 'block' : 'none'};
    margin: 0 auto 30px;
    padding: 20px;
    font-size: 3.5rem;
@@ -81,10 +84,16 @@ export const StyledPageTitle = styled.h1`
    @media(max-width: 850px){
       font-size: 2rem;
    }
+
+   @media(max-width: 600px){
+      display: block;
+   }
 `
 
 export const StyledPageTitleSecond = styled.h2`
    font-size: 1.6rem;
+   width: 70%;
+   padding: 2vw;
 
    &::selection{
       background-color: var(--selectTitle);
@@ -96,5 +105,10 @@ export const StyledPageTitleSecond = styled.h2`
 
    @media(max-width: 850px){
       font-size: 1rem;
+   }
+
+   @media(max-width: 600px){
+      padding: 0;
+      width: 90%;
    }
 `

@@ -8,6 +8,9 @@ import { socialsData } from "./KontaktData"
 import { StyledHeader, StyledArticle, StyledKontakt, StyledTitle } from "./Kontakt.styles"
 import { StyledScrollTo } from "../../GlobalStyles.styles"
 import ScrollButton from "../../Components/ScrollButton/ScrollButton"
+import HeroTitle from "../../Components/HeroTitle/HeroTitle"
+
+const HEADER_TITLE = "Zapraszam do Kontaktu"
 
 export default function Kontakt() {
    const headerBackgroundRef = useRef(null)
@@ -33,6 +36,7 @@ export default function Kontakt() {
          <section>
             <StyledHeader ref={headerBackgroundRef}>
                <StyledScrollTo ref={scrollRef} />
+               <HeroTitle label={HEADER_TITLE}/>
                <ScrollButton scrollRef={scrollRef.current} />
             </StyledHeader>
             <StyledArticle>

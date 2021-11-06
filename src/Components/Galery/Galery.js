@@ -78,7 +78,7 @@ export default function Galery({ imagesData = [], displayTitle, label }) {
          {imagesData.length > 0 ? (
             <div>
             {displayTitle ? (
-               <StyledPageTitle>{label}</StyledPageTitle>
+               <StyledPageTitle isTitle>{label}</StyledPageTitle>
             ) : null}
       
             <StyledSelectedImg isOpen={selectImg}>

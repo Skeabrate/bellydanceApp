@@ -58,7 +58,7 @@ const Header = () => {
          <StyledHeader ref={headerRef} isToggled={headerToggle}>
             <StyledHeaderBackground isToggled={headerToggle}></StyledHeaderBackground>
 
-            <StyledLogo isToggled={headerToggle} to="/" onClick={changeUrlHandler}>Leyla Bellydance</StyledLogo>
+            <StyledLogo isToggled={headerToggle} exact to="/" onClick={changeUrlHandler}>Leyla Bellydance</StyledLogo>
 
             <nav>
                <StyledHamburger onClick={toggleMenu}>

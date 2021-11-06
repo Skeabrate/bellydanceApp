@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 export const StyledHeader = styled.div`
    position: ${({isToggled}) => isToggled ? 'absolute' : 'fixed'};
@@ -16,7 +16,7 @@ export const StyledHeader = styled.div`
    flex-direction: row;
    align-items: center;
    z-index: 10;
-   box-shadow: 1px 1px 10px -3px rgba(0, 0, 0, 1);
+   box-shadow: 1px 1px 20px -4px rgba(0, 0, 0, 1);
    transition: all .4s ease-in-out;
 
    &::after{
@@ -77,7 +77,6 @@ export const StyledNav = styled.ul`
    @media (max-width: 1000px){
       display: flex;
       justify-content: center;
-      gap: 20px;
       align-items: center;
       flex-direction: column;
       position: fixed;
@@ -106,7 +105,7 @@ export const StyledNav = styled.ul`
 `
 
 
-export const StyledNavItem = styled(Link)`
+export const StyledNavItem = styled(NavLink)`
    display: flex;
    align-items: center;
    color: var(--light);
@@ -117,6 +116,10 @@ export const StyledNavItem = styled(Link)`
    text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
    height: ${({isToggled}) => isToggled ? '100px' : '50px'};
    position: relative;
+
+   &.active::after{
+      opacity: 0.8;
+   }
    
    &::selection{
       background-color: var(--selectTitle);
@@ -137,7 +140,6 @@ export const StyledNavItem = styled(Link)`
       border-radius: 50px;
    }
 
-
    &:hover::after{
       opacity: 0.8;
    }
@@ -147,6 +149,7 @@ export const StyledNavItem = styled(Link)`
       margin: 5px;
       margin-left: 20px;
       font-size: 1.5rem;
+      height: 50px;
 
       &:hover::after { 
          display: none;

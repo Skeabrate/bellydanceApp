@@ -7,10 +7,14 @@ import axios from "../../axios"
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
 import { imgLoad } from "../../helpers/imgLoad"
 import GaleryPokazy from "./GaleryPokazy/GaleryPokazy"
-import { StyledAlladinLamp, StyledScrollTo } from "../../GlobalStyles.styles"
+import { StyledAlladinLamp, StyledScrollTo, StyledTextOrnament } from "../../GlobalStyles.styles"
 
-import { StyledWrapper, StyledContainer, StyledHeader, StyledTextContainer, StyledText, StyledParagraph, StyledList, StyledOrnament, StyledVideo } from "./Pokazy.styles"
+import { StyledHeader, StyledVideo } from "./Pokazy.styles"
+import { StyledWrapper, StyledContainer, StyledTextContainer, StyledText, StyledParagraph, StyledList, StyledOrnament} from "../../GlobalStyles.styles"
 import ScrollButton from "../../Components/ScrollButton/ScrollButton"
+import HeroTitle from "../../Components/HeroTitle/HeroTitle"
+
+const HEADER_TITLE = "Magia tańca orientalnego podczas Państwa uroczystości"
 
 export default function Aktualnosci() {
    const [videoSrc, setVideoSrc] = useState('')
@@ -50,12 +54,13 @@ export default function Aktualnosci() {
          <section>
             <StyledHeader ref={headerBackgroundRef}>
                <StyledScrollTo ref={scrollRef} />
+               <HeroTitle label={HEADER_TITLE} />
                <ScrollButton scrollRef={scrollRef.current} />
             </StyledHeader>
             <article>
                {/* Text headers */}
                <PageTitle 
-                  title="Magia tańca orientalnego podczas Państwa uroczystości"
+                  title={HEADER_TITLE}
                   titleH2="W ten egzotyczny świat wprowadzi Cię tancerka Leyla, która może zatańczyć na Państwa weselu, 
                   imprezie okolicznościowej, czy ofiarować w imieniu Państwa, taniec dla gości imprezy."
                   displayOrns={true}
@@ -64,7 +69,6 @@ export default function Aktualnosci() {
                {/* Text second section */}
                <StyledWrapper data-aos="fade-up">
                   <StyledContainer>
-
                      <StyledTextContainer>
                         <StyledText>
                            <StyledParagraph>
@@ -85,9 +89,9 @@ export default function Aktualnosci() {
                            </StyledParagraph>
                         </StyledText>
 
-                        <div style={{ textAlign: 'center' }}>
-                           <StyledOrnament src={paragraphOrnament} alt="textOrnament" />
-                        </div>
+                        <StyledOrnament>
+                           <StyledTextOrnament src={paragraphOrnament} alt="textOrnament" />
+                        </StyledOrnament>
                      </StyledTextContainer>
 
                      {videoSrc ? (

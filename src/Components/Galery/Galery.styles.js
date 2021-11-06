@@ -106,9 +106,11 @@ export const StyledGalery = styled.div`
 
 export const StyledImage = styled.div`
    transition: opacity .2s ease-in-out;
+   text-align: center;
 
    img{
-      width: 100%;
+      max-width: 100%;
+      max-height: 90vh;
       cursor: pointer;
    }
 

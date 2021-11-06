@@ -9,10 +9,17 @@ export const StyledHeader = styled.div`
    position: relative;
    background-size: cover;
    background-repeat: no-repeat;
+   background-attachment: fixed;
    height: calc(100vh - 30px);
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   padding-bottom: 15vh;
 
    @media (max-width: 1000px) {
+      background-attachment: unset;
       height: 60vh;
+      padding-bottom: 15vh;
    }
 
    @media (max-width: 600px) {
@@ -20,44 +27,13 @@ export const StyledHeader = styled.div`
    }
 `
 
-export const StyledContainer = styled.div`
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   padding: 2vw;
-   background-color: rgb(252, 244, 229);
-   border-radius: 50px 50px 0 0;
-   border-top: 1px solid var(--selectTitle);
-   overflow: hidden;
+export const StyledTextHeader = styled.div`
+   font-size: 1.3rem;
+   text-align: center;
+   position: relative;
+   padding: 0 6vw 10vw;
 
    @media (max-width: 1000px) {
-      grid-template-columns: 1fr;
-      border-radius: 30px 30px 0 0;
-   }
-
-   @media (max-width: 600px) {
-      border-radius: 20px 20px 0 0;
-   }
-`
-
-export const StyledWrapper = styled.div`
-   display: flex;
-   font-size: 1.1rem;
-   height: 100%;
-   padding: 2vw;
-   flex-direction: column;
-   text-align: justify;
-   justify-content: space-between;
-   align-items: flex-end;
-   border-right: 4px dotted var(--selectTitle);
-
-   @media (max-width: 1000px) {
-      border-right: none;
-      border-bottom: 4px dotted var(--selectTitle);
-      padding: 8vw 2vw;
       font-size: 1rem;
    }
-`
-
-export const StyledParagraph = styled.p`
-   padding-bottom: 2vw;
 `

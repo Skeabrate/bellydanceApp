@@ -56,9 +56,9 @@ const StyledButton = styled.button`
       animation: ${bounceSecond} 1.5s alternate infinite;
    }
 
-   &:hover {
+   /* &:hover {
       animation-timing-function: step-start;
-   }
+   } */
 
    @media (max-width: 600px){
       display: none;

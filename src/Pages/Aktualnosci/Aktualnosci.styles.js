@@ -1,19 +1,22 @@
 import styled from "styled-components"
-import baner from "../../Assets/Images/banery/banerAktualnosci.jpg"
-import playBtn from "../../Assets/Images/play.png"
+import baner from "../../Assets/Images/banery/banerAktualnosci2.jpg"
 
 export const StyledContainer = styled.div`
    width: 100%;
    height: 100vh;
-   position: relative;
    background: url(${baner}) top;
-   position: relative;
    background-size: cover;
    background-repeat: no-repeat;
+   position: relative;
    box-shadow: 0px 0px 29px -3px rgba(0, 0, 0, 1);
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   padding-bottom: 20vh;
 
    @media (max-width: 1000px) {
       height: 60vh;
+      padding-bottom: 15vh;
    }
 
    @media (max-width: 600px) {
