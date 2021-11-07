@@ -151,6 +151,10 @@ export const StyledNavItem = styled(NavLink)`
       font-size: 1.5rem;
       height: 50px;
 
+      &.active::after{
+         display: none;
+      }
+
       &:hover::after { 
          display: none;
       }

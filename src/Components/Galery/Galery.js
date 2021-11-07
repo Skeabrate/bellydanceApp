@@ -3,7 +3,10 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
 import { StyledPageTitle } from "../PageTitle/PageTitle.styles";
-import { StyledGalery ,StyledSelectedImg, StyledCloseIcon, StyledArrowBackIosIcon, StyledArrowForwardIosIcon, StyledImage } from "./Galery.styles";
+import { StyledGalery ,StyledSelectedImg, StyledImage, StyledCloseWrapper, StyledIconWrapper } from "./Galery.styles";
+import CloseIcon from '@material-ui/icons/Close';
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 export default function Galery({ imagesData = [], displayTitle, label }) {
    const [selectImg, setSelectImg] = useState(false)
@@ -86,16 +89,27 @@ export default function Galery({ imagesData = [], displayTitle, label }) {
                   <img alt="" src={imagesData[current].url}/>
                ) : null
                } 
-               
-               <StyledCloseIcon
-                  onClick={() => setSelectImg(false)}
-               />
-               <StyledArrowBackIosIcon 
-                  onClick={prevSlide}
-               />
-               <StyledArrowForwardIosIcon 
-                  onClick={nextSlide}
-               />
+
+               <StyledCloseWrapper>
+                  <CloseIcon
+                     onClick={() => setSelectImg(false)}
+                  />
+               </StyledCloseWrapper>
+
+
+               <StyledIconWrapper>
+                  <ArrowForwardIosIcon 
+                     onClick={prevSlide}
+                  />
+               </StyledIconWrapper>
+
+
+               <StyledIconWrapper>
+                  <ArrowForwardIosIcon 
+                     onClick={nextSlide}
+                  />
+               </StyledIconWrapper>
+
             </StyledSelectedImg>
 
             <StyledGalery isOne={classForOne} isTwo={classForTwo}>

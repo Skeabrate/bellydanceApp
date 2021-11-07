@@ -10,7 +10,7 @@ import { StyledScrollTo } from "../../GlobalStyles.styles"
 import ScrollButton from "../../Components/ScrollButton/ScrollButton"
 import HeroTitle from "../../Components/HeroTitle/HeroTitle"
 
-const HEADER_TITLE = "Zapraszam do Kontaktu"
+const HEADER_TITLE = "Zapraszam do mojego świata"
 
 export default function Kontakt() {
    const headerBackgroundRef = useRef(null)

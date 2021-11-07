@@ -1,8 +1,74 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
-import CloseIcon from '@material-ui/icons/Close';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+
+/* ICONS */ 
+const styledIcon = css`
+   position: fixed;
+   cursor: pointer;
+   transform: scale(1.5);
+   color: white;
+   transition: transform .3s ease-in-out;
+   height: 26px;
+   width: 26px;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+`
+
+const styledIconBackground = css`
+   content: '';
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   border-radius: 50%;
+   background-color: black;
+   opacity: 0.1;
+   z-index: -1;
+   bottom: 0;
+   left: 0;
+`
+
+export const StyledCloseWrapper = styled.div`
+   ${styledIcon}
+   top: 20px;
+   right: 20px;
+
+   &::after{
+      ${styledIconBackground}
+   }
+
+   &:hover{
+      transform: scale(1.3);
+   }
+`
+
+export const StyledIconWrapper = styled.div`
+   ${styledIcon}
+   top: 50%;
+   right: 30px;
+
+   &::after{
+      ${styledIconBackground}
+   }
+   
+   &:hover{
+      transform: scale(1.3);
+   }
+
+   &:not(:last-child){
+      transform: rotate(180deg) scale(1.5);
+      top: 50%;
+      left: 30px;
+   }
+
+   &:hover:not(:last-child){
+      transform: rotate(180deg) scale(1.3)
+   }
+`
+/* ICONS */
+
+
 
 export const StyledSelectedImg = styled.div`
    width: 100%;
@@ -42,48 +108,6 @@ export const StyledSelectedImg = styled.div`
       line-height: 0;
       padding: 20px 0 20px;
       margin: 0 auto;
-   }
-`
-
-export const StyledCloseIcon = styled(CloseIcon)`
-   position: fixed;
-   top: 20px;
-   right: 20px;
-   transform: scale(1.5);
-   color: white;
-   cursor: pointer;
-   transition: all .3s ease-in-out;
-
-   &:hover{
-      transform: scale(1.3);
-   }
-`
-
-export const StyledArrowBackIosIcon = styled(ArrowBackIosIcon)`
-   position: absolute;
-   top: 50%;
-   left: 30px;
-   transform: scale(1.5);
-   color: white;
-   cursor: pointer;
-   transition: transform .3s ease-in-out;
-
-   &:hover{
-      transform: scale(1.3);
-   }
-`
-
-export const StyledArrowForwardIosIcon = styled(ArrowForwardIosIcon)`
-   position: absolute;
-   top: 50%;
-   right: 30px;
-   transform: scale(1.5);
-   color: white;
-   cursor: pointer;
-   transition: transform .3s ease-in-out;
-
-   &:hover{
-      transform: scale(1.3);
    }
 `
 
