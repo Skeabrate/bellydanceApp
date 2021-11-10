@@ -14,7 +14,7 @@ export const StyledContainer = styled.div`
 export const StyledArticleWrapper = styled.article`
    overflow: hidden;
 
-   &:nth-child(odd){
+   &:nth-child(3){
       background-color: var(--postBackground);
       border-bottom: 1px solid var(--selectTitle);
    }
@@ -24,6 +24,7 @@ export const StyledArticle = styled.div`
    display: grid;
    grid-template-columns: ${({isSecond}) => isSecond ? '1fr 1fr' : '1fr'};
    padding: 6vw;
+   padding-top: ${({isFirst}) => isFirst ? '2vw' : '6vw'};
 
    @media(max-width: 850px){
       grid-template-columns: 1fr;

@@ -72,7 +72,7 @@ export const StyledNav = styled.ul`
    color: var(--light);
    display: flex;
    list-style: none;
-   gap: 2.5vw;
+   /* gap: 2.5vw; */
 
    @media (max-width: 1000px){
       display: flex;
@@ -116,6 +116,7 @@ export const StyledNavItem = styled(NavLink)`
    text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
    height: ${({isToggled}) => isToggled ? '100px' : '50px'};
    position: relative;
+   margin: 0 1.2vw;
 
    &.active::after{
       opacity: 0.8;

@@ -19,12 +19,12 @@ export default function AboutMe(){
          
          <section>
             <header>
-               <StyledPageTitle data-aos="zoom-in">O mnie</StyledPageTitle>
+               <StyledPageTitle isTitle data-aos="zoom-in">O mnie</StyledPageTitle>
             </header>
 
             {paragraphData.map(paragraph => (
                <StyledArticleWrapper key={paragraph.text}>
-                  <StyledArticle isSecond={paragraph === paragraphData[1]}>
+                  <StyledArticle isFirst={paragraph === paragraphData[0]} isSecond={paragraph === paragraphData[1]}>
                      <StyledParagraphContainer isSecond={paragraph === paragraphData[1]}>
                         <StyledParagraph isFirst={paragraph === paragraphData[0]}>
                            {paragraph === paragraphData[0] ? (
@@ -48,14 +48,6 @@ export default function AboutMe(){
                   </StyledArticle>
                </StyledArticleWrapper>
             ))}
-
-            
-            {/* <article className="AboutMe_wraper">
-               <div className={`AboutMe_article_galery`}>
-                  <h1 className="pageTitle AboutMe_h1">Moja edukacja taneczna</h1>
-                  <div></div>
-               </div>
-            </article> */}
 
          </section>
       </StyledContainer>
