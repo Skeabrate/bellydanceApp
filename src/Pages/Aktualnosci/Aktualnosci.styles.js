@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import baner from "../../Assets/Images/banery/banerAktualnosci2.jpg"
+import baner from "../../Assets/Images/banery/banerAktualnosci2-min.jpg"
 
 export const StyledContainer = styled.div`
    width: 100%;

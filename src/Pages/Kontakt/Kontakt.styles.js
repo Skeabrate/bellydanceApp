@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import baner from "../../Assets/Images/banery/banerKontakt.jpg"
+import baner from "../../Assets/Images/banery/banerKontakt-min.jpg"
 import ornament from "../../Assets/Images/ramkaKontakt.png"
 
 export const StyledHeader = styled.div`

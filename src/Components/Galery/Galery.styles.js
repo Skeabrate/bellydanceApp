@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components"
 
-
 /* ICONS */ 
 const styledIcon = css`
    position: fixed;

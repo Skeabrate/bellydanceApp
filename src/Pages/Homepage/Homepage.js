@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import "aos/dist/aos.css"
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
 import { imgLoad } from "../../helpers/imgLoad"
-import HomepageBaner from "../../Assets/Images/banery/plakatAgnus.jpg"
+import HomepageBaner from "../../Assets/Images/banery/plakatAgnus-min.jpg"
 import ScrollButton from "../../Components/ScrollButton/ScrollButton"
 import HeroTitle from "../../Components/HeroTitle/HeroTitle"
 

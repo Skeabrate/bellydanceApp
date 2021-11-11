@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import baner from "../../Assets/Images/banery/banerPokazy.jpg"
+import baner from "../../Assets/Images/banery/banerPokazy-min.jpg"
 
 export const StyledHeader = styled.div`
    width: 100%;

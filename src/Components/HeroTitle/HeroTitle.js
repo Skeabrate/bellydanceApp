@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components"
-import imgOrnament from "../../Assets/Images/Daco_4358948 (1).png"
+import imgOrnament from "../../Assets/Images/ornTitle.png"
 import "aos/dist/aos.css"
 
 const StyledTitleContainer = styled.div`
@@ -55,7 +55,6 @@ const StyledTitle = styled.p`
 
 const StyledOrnament = styled.img`
    width: 300px;
-   transform: rotate(-180deg);
 
    @media(max-width: 1000px){
       width: 200px;

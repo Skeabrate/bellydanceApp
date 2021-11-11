@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react"
 import zajeciaPlakat from "../../Assets/Zajecia/zajeciaOgloszenie.jpg"
 import zajeciaFooterImg from "../../Assets/Zajecia/zajeciaFooter.jpg"
-import paragraphOrnament from "../../Assets/Images/Daco_40936 (1).png"
+import paragraphOrnament from "../../Assets/Images/ornParag.png"
 import PageTitle from "../../Components/PageTitle/PageTitle"
 import Galery from "../../Components/Galery/Galery"
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
@@ -13,7 +13,6 @@ import { StyledOrnament, StyledAsset, StyledScrollTo, StyledText, StyledTextCont
 import { StyledAlladinLamp } from "../../GlobalStyles.styles"
 import { StyledHeader, StyledTextHeader } from "./Zajecia.styles"
 import ScrollButton from "../../Components/ScrollButton/ScrollButton"
-import HeroTitle from "../../Components/HeroTitle/HeroTitle"
 
 const HEADER_TITLE = "Taniec orientalny jest dla każdej z nas ♥"
 

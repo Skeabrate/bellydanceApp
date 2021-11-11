@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import paragraphOrnament from "../../Assets/Images/Daco_40936 (1).png"
+import paragraphOrnament from "../../Assets/Images/ornParag.png"
 import Aos from "aos"
 import "aos/dist/aos.css"
 import { paragraphData } from './AboutMeData'

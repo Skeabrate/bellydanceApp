@@ -5,7 +5,6 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import { StyledPageTitle } from "../PageTitle/PageTitle.styles";
 import { StyledGalery ,StyledSelectedImg, StyledImage, StyledCloseWrapper, StyledIconWrapper } from "./Galery.styles";
 import CloseIcon from '@material-ui/icons/Close';
-import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 
 export default function Galery({ imagesData = [], displayTitle, label }) {
