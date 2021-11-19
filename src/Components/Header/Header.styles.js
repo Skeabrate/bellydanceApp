@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { Link, NavLink } from "react-router-dom"
 
 export const StyledHeader = styled.div`
-   position: ${({isToggled}) => isToggled ? 'absolute' : 'fixed'};
+   position: fixed;
    top: 0;
    left: 0;
    right: 0;
