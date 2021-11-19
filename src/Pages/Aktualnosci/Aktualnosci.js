@@ -20,7 +20,34 @@ import HeroTitle from "../../Components/HeroTitle/HeroTitle"
 
 const HEADER_TITLE = "Co słychać w królestwie tańca orientalnego?"
 
+const queryVal = `
+{
+   _allPostsMeta {
+     count
+   }
+}`
+
+const query = (val) => `{
+   allPosts(first: ${val}) {
+     id
+     date
+     title
+     description{
+       value
+     }
+     assets{
+       url
+     }
+     video{
+       url
+       thumbnailUrl
+     }
+   }
+ }
+`
+
 export default function Aktualnosci() {
+   const [allPosts, setAllPosts] = useState(false)
    const [postData, setPostData] = useState([])
    const [loading, setLoading] = useState(false)
    const [showContent, setShowContent] = useState(false)
@@ -28,32 +55,32 @@ export default function Aktualnosci() {
    const headerBackgroundRef = useRef(null)
    const scrollRef = useRef(null)
 
-   const fetchPosts = async () => {
+   const fetchPostsVal = async () => {
       try{
          const res = await axios.post('https://graphql.datocms.com/', {
-            query: `
-            {
-               allPosts {
-                 id
-                 date
-                 title
-                 description{
-                   value
-                 }
-                 assets{
-                   url
-                 }
-                 video{
-                   url
-                   thumbnailUrl
-                 }
-               }
-             }`
+            query: queryVal,
          },{
             headers: {
                authorization: `Bearer ${process.env.REACT_APP_DATOCMS}`
             }
          })
+         setAllPosts(res.data.data._allPostsMeta.count)
+
+      } catch (ex) {
+         console.log(ex.response)
+      }
+   } 
+
+   const fetchPosts = async () => {
+      try{
+         const res = await axios.post('https://graphql.datocms.com/', {
+            query: query(allPosts)
+         },{
+            headers: {
+               authorization: `Bearer ${process.env.REACT_APP_DATOCMS}`
+            }
+         })
+
          setPostData(res.data.data.allPosts)
       } catch (ex) {
          console.log(ex.response)
@@ -70,8 +97,12 @@ export default function Aktualnosci() {
       image.onload = function() {
          setShowContent(true)
       }
-      fetchPosts()
+      fetchPostsVal()
    }, [])
+
+   useEffect(() => {
+      fetchPosts()
+   }, [allPosts])
 
    return (
       <>
