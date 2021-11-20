@@ -20,68 +20,50 @@ import HeroTitle from "../../Components/HeroTitle/HeroTitle"
 
 const HEADER_TITLE = "Co słychać w królestwie tańca orientalnego?"
 
-const queryVal = `
-{
-   _allPostsMeta {
-     count
-   }
-}`
-
-const query = (val) => `{
-   allPosts(first: ${val}) {
-     id
-     date
-     title
-     description{
-       value
-     }
-     assets{
-       url
-     }
-     video{
-       url
-       thumbnailUrl
-     }
-   }
- }
-`
-
 export default function Aktualnosci() {
-   const [allPosts, setAllPosts] = useState(false)
-   const [postData, setPostData] = useState([])
+   const [data, setData] = useState(false)
+   const [posts, setPosts] = useState([])
+   const [limit, setLimit] = useState(100)
+
    const [loading, setLoading] = useState(false)
    const [showContent, setShowContent] = useState(false)
 
    const headerBackgroundRef = useRef(null)
    const scrollRef = useRef(null)
 
-   const fetchPostsVal = async () => {
-      try{
-         const res = await axios.post('https://graphql.datocms.com/', {
-            query: queryVal,
-         },{
-            headers: {
-               authorization: `Bearer ${process.env.REACT_APP_DATOCMS}`
-            }
-         })
-         setAllPosts(res.data.data._allPostsMeta.count)
-
-      } catch (ex) {
-         console.log(ex.response)
+   const query = `{
+      allPosts(first: ${limit}) {
+        id
+        date
+        title
+        description{
+          value
+        }
+        assets{
+          url
+        }
+        video{
+          url
+          thumbnailUrl
+        }
       }
-   } 
+      _allPostsMeta {
+         count
+      }
+   }`
 
-   const fetchPosts = async () => {
+   const fetchData = async () => {
       try{
          const res = await axios.post('https://graphql.datocms.com/', {
-            query: query(allPosts)
+            query: query,
          },{
             headers: {
                authorization: `Bearer ${process.env.REACT_APP_DATOCMS}`
             }
          })
 
-         setPostData(res.data.data.allPosts)
+         setData(res.data.data)
+         setPosts(res.data.data.allPosts)
       } catch (ex) {
          console.log(ex.response)
       }
@@ -97,12 +79,19 @@ export default function Aktualnosci() {
       image.onload = function() {
          setShowContent(true)
       }
-      fetchPostsVal()
+      
+      fetchData()
+      setLimit(limit + 10)
    }, [])
 
    useEffect(() => {
-      fetchPosts()
-   }, [allPosts])
+      if(data){
+         if(data.allPosts.length < data._allPostsMeta.count){
+            setLimit(limit + 100)
+            fetchData()
+         }      
+      } 
+   }, [posts])
 
    return (
       <>
@@ -117,13 +106,13 @@ export default function Aktualnosci() {
             <>
                <PageTitle
                   title={HEADER_TITLE}
-                  titleH2={`Posty (${postData.length}):`}
+                  titleH2={`Posty (${posts.length}):`}
                   displayOrns={true}
                />
 
                <section>
-                  {postData.map(post => {
-                     const lastIndex = postData.length - 1;
+                  {posts.map(post => {
+                     const lastIndex = posts.length - 1;
                      const imgTable = objectToArrayWithId(post.assets)
                      const newTable = []
                      post.description.value.document.children.map(item => {
@@ -132,7 +121,7 @@ export default function Aktualnosci() {
 
                      return (
                         <div key={post.id}>
-                           <StyledArticle isFirst={post === postData[0]}>
+                           <StyledArticle isFirst={post === posts[0]}>
                               <StyledPost>
                                  <StyledDate>{post.date}</StyledDate>
 
@@ -165,7 +154,7 @@ export default function Aktualnosci() {
                               </StyledPost>
                            </StyledArticle>
 
-                           {post !== postData[lastIndex] ? (
+                           {post !== posts[lastIndex] ? (
                               <div style={{ textAlign: 'center' }}>
                                  <StyledOrnamentDown alt="" style={{marginTop: '0'}} src={kulki} />
                               </div>
