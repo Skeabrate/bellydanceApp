@@ -10,7 +10,6 @@ import { objectToArrayWithId } from "../../helpers/objects"
 import PuffLoader from "react-spinners/PuffLoader"
 import { imgLoad } from "../../helpers/imgLoad"
 import LoadingScreen from "../../Components/LoadingScreen/LoadingScreen"
-import playBtn from "../../Assets/Images/play.png"
 
 import { StyledOrnamentDown } from "../../Components/PageTitle/PageTitle.styles"
 import { StyledScrollTo, StyledTextOrnament } from "../../GlobalStyles.styles"
@@ -138,14 +137,7 @@ export default function Aktualnosci() {
                                  {post.video ? (
                                     <>
                                        <StyledTitle>A oto filmik 😊</StyledTitle>
-                                       <a href={post.video.url} target="_blank" rel="noopener noreferrer">
-                                          <StyledThumbnail>
-                                             <img src={post.video.thumbnailUrl} alt="thumbnail"/>
-                                             <StyledPlay>
-                                                <img src={playBtn} alt="playBtn"/>
-                                             </StyledPlay>
-                                          </StyledThumbnail>
-                                       </a>
+                                       <a href={post.video.url} target="_blank" rel="noopener noreferrer">{post.video.url}</a>
                                     </>
                                  ) : null} 
 

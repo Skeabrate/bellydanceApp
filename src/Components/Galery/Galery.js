@@ -112,14 +112,14 @@ export default function Galery({ imagesData = [], displayTitle, label }) {
             </StyledSelectedImg>
 
             <StyledGalery isOne={classForOne} isTwo={classForTwo}>
-               {imagesData.map(image => (
+               {imagesData.map(({id, url = {}, }) => (
                   <StyledImage
-                     key={image.id}
-                     onClick={() => getImg(image.id)}
+                     key={id}
+                     onClick={() => getImg(id)}
                   >
                      <LazyLoadImage
                         effect="blur"
-                        src={image.url}
+                        src={url}
                         alt=""
                      />
                   </StyledImage>
