@@ -7,6 +7,7 @@ Main technologies I used for this project:
 - React.js
 - Styled components
 - Datocms as headless cms
+- GraphQL
 - Hosting from firebase
 - Material-ui icons
 - Lazy loading images
